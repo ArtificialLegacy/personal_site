@@ -2,13 +2,16 @@
 .banner {
   background: linear-gradient(#212121, #151515);
   width: 100%;
+}
 
-  position: relative;
+.banner-container {
+  background-color: #111111;
+
+  border-radius: 25px;
 }
 
 .banner-pfp-container {
   display: inline-block;
-  position: relative;
 
   background-color: #212121;
 
@@ -45,28 +48,16 @@
   color: #BBBBAA;
 }
 
-.banner-container {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 865px;
-  padding: 20px;
-
-  background-color: #111111;
-
-  border-radius: 25px;  
-}
-
-
 @media screen and (min-width: 950px) {
   .banner {
-    padding-top: 75px;
-    padding-bottom: 75px;
+    padding: 50px;
+  }
 
-    height: 345px;
+  .banner-container {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 140px);
+    padding: 20px;
   }
 
   .banner-pfp-container {
@@ -79,10 +70,7 @@
   }
 
   .banner-card {
-    vertical-align: bottom;
-
-    width: 460px;
-    height: 265px;
+    width: calc(100% - 400px);
 
     margin-left: 50px;
   }
@@ -90,5 +78,35 @@
   .banner-text {
     width: 460px;
     height: 235px;
+  }
+}
+
+@media screen and (max-width: 949px) {
+  .banner {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .banner-container {
+    width: calc(100% - 80px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+
+  .banner-pfp-container {
+    width: 305px;
+    height: 305px;
+
+    margin-left: calc(50% - 152.5px);
+  }
+
+  .banner-pfp {
+    width: 275px;
+  }
+
+  .banner-card {
+    vertical-align: bottom;
+    margin-top: 40px;
   }
 }
