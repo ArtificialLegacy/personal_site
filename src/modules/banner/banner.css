@@ -1,16 +1,18 @@
 
 .banner {
-  background-color: #212121;
+  background: linear-gradient(#212121, #151515);
   width: 100%;
+
+  position: relative;
 }
 
 .banner-pfp-container {
   display: inline-block;
   position: relative;
 
-  background-color: #111111;
+  background-color: #212121;
 
-  box-shadow: 0px 0px 10px 0px black inset;
+  box-shadow: 0px 0px 10px 0px black;
   border-radius: 50%;
 }
 
@@ -29,9 +31,9 @@
 .banner-card {
   display: inline-block;
 
-  background-color: #111111;
+  background-color: #212121;
   
-  box-shadow: 0px 0px 10px 0px black inset;
+  box-shadow: 0px 0px 10px 0px black;
   border-radius: 25px;
 
   padding: 20px;
@@ -43,18 +45,33 @@
   color: #BBBBAA;
 }
 
+.banner-container {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 865px;
+  padding: 20px;
+
+  background-color: #111111;
+
+  border-radius: 25px;  
+}
+
 
 @media screen and (min-width: 950px) {
   .banner {
-    height: 550px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+
+    height: 345px;
   }
 
   .banner-pfp-container {
     width: 305px;
     height: 305px;
-
-    margin-top: 95px;
-    margin-left: 70px;
   }
 
   .banner-pfp {
