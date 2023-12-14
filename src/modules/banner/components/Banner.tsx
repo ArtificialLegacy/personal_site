@@ -5,7 +5,7 @@ function Banner() {
     <div className="banner">
       <div className="banner-container">
         <div className="banner-pfp-container">
-          <img className="banner-pfp" src="pfp.png" />
+          <img className="banner-pfp" src="pfp.png" alt="Profile Picture" />
         </div>
 
         <div className="banner-card">
