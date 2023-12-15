@@ -1,112 +1,146 @@
+:root {
+  --banner-pfp-size: 305px;
+  --banner-card-pad: 20px;
+  --banner-pfp-margin: 15px;
+  --pfp-hover-scale: 1.01;
+  --pfp-radius: 10px;
+}
 
 .banner {
-  background: linear-gradient(#212121, #151515);
+  background: linear-gradient(var(--bg1), var(--bg-grad));
   width: 100%;
 }
 
 .banner-container {
-  background-color: #111111;
+  background-color: var(--bg2);
 
-  border-radius: 25px;
+  border-radius: var(--radius);
 }
 
 .banner-pfp-container {
+  width: var(--banner-pfp-size);
+  height: var(--banner-pfp-size);
+
   display: inline-block;
+  position: relative;
 
-  background-color: #212121;
+  background-color: var(--bg1);
 
-  box-shadow: 0px 0px 10px 0px black;
-  border-radius: 50%;
+  box-shadow: 0 0 10px 0 black;
+  border-radius: var(--pfp-radius);
+
+  &:hover {
+    transform: scale(var(--pfp-hover-scale));
+    box-shadow: 0 0 20px 0 black;
+  }
 }
 
 .banner-pfp {
   display: inline-block;
 
+  width: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
+
+  margin-left: var(--banner-pfp-margin);
+  margin-top: var(--banner-pfp-margin);
+
   aspect-ratio: 1/1;
   object-fit: cover;
 
-  border-radius: 50%;
+  border-radius: var(--pfp-radius);
 
-  margin-left: 15px;
-  margin-top: 15px;
+  &:hover {
+    width: calc(var(--banner-pfp-size * var(--pfp-hover-scale)) - (var(--banner-pfp-margin) * 2));
+  }
+}
+
+.banner-shadow {
+  position: absolute;
+  top: var(--banner-pfp-margin);
+  left: var(--banner-pfp-margin);
+
+  width: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
+  height: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
+
+  border-radius: var(--pfp-radius);
+
+  box-shadow: 0 0 20px 2px black inset;
+
+  &:hover {
+    width: calc(var(--banner-pfp-size * var(--pfp-hover-scale)) - (var(--banner-pfp-margin) * 2));
+    height: calc(var(--banner-pfp-size * var(--pfp-hover-scale)) - (var(--banner-pfp-margin) * 2));
+  }
 }
 
 .banner-card {
   display: inline-block;
 
-  background-color: #212121;
-  
-  box-shadow: 0px 0px 10px 0px black;
-  border-radius: 25px;
+  background-color: var(--bg1);
 
-  padding: 20px;
+  box-shadow: 0px 0px 10px 0px black;
+  border-radius: var(--radius);
+
+  padding: var(--banner-card-pad);
 }
 
 .banner-text {
   display: inline;
 
-  color: #BBBBAA;
+  color: var(--text);
 }
 
 @media screen and (min-width: 950px) {
+  :root {
+    --banner-pad: 50px;
+    --banner-container-pad: 20px;
+    --banner-card-margin: 50px;
+  }
+
   .banner {
-    padding: 50px;
+    padding: var(--banner-pad);
   }
 
   .banner-container {
     display: flex;
     align-items: center;
-    width: calc(100% - 140px);
-    padding: 20px;
-  }
 
-  .banner-pfp-container {
-    width: 305px;
-    height: 305px;
-  }
-
-  .banner-pfp {
-    width: 275px;
+    width: calc(100% - (var(--banner-pad) * 2) - (var(--banner-container-pad) * 2));
+    padding: var(--banner-container-pad);
   }
 
   .banner-card {
-    width: calc(100% - 400px);
+    width: calc(100% - (var(--banner-pad) * 2) - var(--banner-pfp-size));
+    min-height: calc(var(--banner-pfp-size) - (var(--banner-container-pad) * 2));
 
-    margin-left: 50px;
-  }
-
-  .banner-text {
-    width: 460px;
-    height: 235px;
+    margin-left: var(--banner-card-margin);
   }
 }
 
 @media screen and (max-width: 949px) {
+  :root {
+    --banner-pad: 25px;
+    --banner-container-pad: 20px;
+    --banner-card-margin: 40px;
+  }
+
   .banner {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: var(--banner-pad);
+    padding-bottom: var(--banner-pad);
   }
 
   .banner-container {
-    width: calc(100% - 80px);
+    width: calc(100% - (var(--banner-pad) * 2) - (var(--banner-container-pad) * 2));
+    padding: var(--banner-container-pad);
+
     margin-left: auto;
     margin-right: auto;
-    padding: 20px;
   }
 
   .banner-pfp-container {
-    width: 305px;
-    height: 305px;
-
-    margin-left: calc(50% - 152.5px);
-  }
-
-  .banner-pfp {
-    width: 275px;
+    margin-left: calc(50% - (var(--banner-pfp-size) / 2));
   }
 
   .banner-card {
     vertical-align: bottom;
-    margin-top: 40px;
+    margin-top: var(--banner-card-margin);
   }
 }

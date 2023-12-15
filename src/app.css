@@ -1,3 +1,13 @@
+:root {
+  --bg1: #212121;
+  --bg2: #111111;
+  --bg-grad: #151515;
+
+  --text: #BBBBAA;
+
+  --radius: 10px;
+}
+
 body {
   padding: 0px;
   margin: 0px;
