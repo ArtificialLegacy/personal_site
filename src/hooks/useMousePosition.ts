@@ -2,9 +2,13 @@ import { useState, useEffect } from 'react'
 
 import Vector from 'utility/Vector'
 
+/**
+ * A hook that returns the current mouse position.
+ * @returns - The current mouse position as a vector.
+ */
 function useMousePosition() {
-  const [mousePos, setMousePos] = useState<Vector>(Vector.zero())
-  const [updatePos, setUpdatePos] = useState<Vector>(Vector.zero())
+  const [mousePos, setMousePos] = useState<Vector>(Vector.Zero)
+  const [updatePos, setUpdatePos] = useState<Vector>(Vector.Zero)
   const [time, setTime] = useState<number | null>()
 
   useEffect(() => {
