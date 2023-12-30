@@ -17,6 +17,8 @@
     "baseUrl": "./src",
     "paths": {
       "modules/*": ["modules/*"],
+      "utility/*": ["utility/*"],
+      "hooks/*": ["hooks/*"]
     },
 
     /* Linting */

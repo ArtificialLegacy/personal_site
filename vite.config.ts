@@ -8,6 +8,8 @@ export default defineConfig({
     alias: {
       src: '/src',
       modules: '/src/modules',
+      utility: '/src/utility',
+      hooks: '/src/hooks',
     },
   },
 })
