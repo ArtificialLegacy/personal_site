@@ -1,8 +1,11 @@
-import '../banner.css'
+import { BoidCanvas } from 'modules/boids'
+
+import '../styles/banner.css'
 
 function Banner() {
   return (
-    <div className="banner">
+    <div className="banner" id="banner">
+      <BoidCanvas />
       <div className="banner-container">
         <div className="banner-pfp-container">
           <img className="banner-pfp" src="pfp.png" alt="Profile Picture" />

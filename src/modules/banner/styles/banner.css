@@ -3,17 +3,16 @@
   --banner-card-pad: 20px;
   --banner-pfp-margin: 15px;
   --pfp-hover-scale: 1.01;
-  --pfp-radius: 10px;
+  --pfp-radius: 50%;
 }
 
 .banner {
-  background: linear-gradient(var(--bg1), var(--bg-grad));
   width: 100%;
+  display: flex;
 }
 
 .banner-container {
-  background-color: var(--bg2);
-
+  align-items: stretch;
   border-radius: var(--radius);
 }
 
@@ -24,15 +23,10 @@
   display: inline-block;
   position: relative;
 
-  background-color: var(--bg1);
+  background-color: var(--bg2o);
 
   box-shadow: 0 0 10px 0 black;
   border-radius: var(--pfp-radius);
-
-  &:hover {
-    transform: scale(var(--pfp-hover-scale));
-    box-shadow: 0 0 20px 0 black;
-  }
 }
 
 .banner-pfp {
@@ -47,10 +41,6 @@
   object-fit: cover;
 
   border-radius: var(--pfp-radius);
-
-  &:hover {
-    width: calc(var(--banner-pfp-size * var(--pfp-hover-scale)) - (var(--banner-pfp-margin) * 2));
-  }
 }
 
 .banner-shadow {
@@ -74,7 +64,7 @@
 .banner-card {
   display: inline-block;
 
-  background-color: var(--bg1);
+  background-color: var(--bg2o);
 
   box-shadow: 0px 0px 10px 0px black;
   border-radius: var(--radius);
@@ -96,6 +86,7 @@
   }
 
   .banner {
+    width: calc(100% - (var(--banner-pad) * 2));
     padding: var(--banner-pad);
   }
 
@@ -103,7 +94,6 @@
     display: flex;
     align-items: center;
 
-    width: calc(100% - (var(--banner-pad) * 2) - (var(--banner-container-pad) * 2));
     padding: var(--banner-container-pad);
   }
 
