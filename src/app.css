@@ -1,7 +1,8 @@
 :root {
   --bg1: #212121;
   --bg2: #111111;
-  --bg-grad: #151515;
+  --bg1o: #212121DD;
+  --bg2o: #111111DD;
 
   --text: #BBBBAA;
 
@@ -11,4 +12,12 @@
 body {
   padding: 0px;
   margin: 0px;
+
+  background-color: black;
+  overflow-x: hidden;
+}
+
+.seperator {
+  margin-left: 50px;
+  margin-right: 50px;
 }
