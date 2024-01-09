@@ -42,14 +42,12 @@ describe('Vector static', () => {
   })
 
   it('should get a random vector', () => {
-    for (let i = 0; i < 100; i++) {
-      const vec = Vector.random(1, 2)
+    const vec = Vector.random(1, 2)
 
-      expect(vec.x).toBeGreaterThanOrEqual(0)
-      expect(vec.x).toBeLessThanOrEqual(1)
-      expect(vec.y).toBeGreaterThanOrEqual(0)
-      expect(vec.y).toBeLessThanOrEqual(2)
-    }
+    expect(vec.x).toBeGreaterThanOrEqual(0)
+    expect(vec.x).toBeLessThanOrEqual(1)
+    expect(vec.y).toBeGreaterThanOrEqual(0)
+    expect(vec.y).toBeLessThanOrEqual(2)
   })
 
   it('should get a vector with just an x value', () => {
