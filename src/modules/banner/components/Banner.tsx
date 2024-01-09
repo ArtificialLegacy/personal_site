@@ -12,7 +12,7 @@ function Banner() {
           <div className="banner-shadow" />
         </div>
 
-        <div className="banner-card">
+        <article className="banner-card">
           <p className="banner-text">
             asdasfsdfsdf oihsdkfuh weuihf hwebfb sdbf sud bhcxvbh uisdbfi bs sdf sdf sdf sdf w3ee fewf wefn khwev hbdisb
             fibdshv bsdhb jbvqwgvdBD iasjndf hbfwiuef nxchbviu sbdiufbesjhvbeqjhbwhdb iusdnfi unsdfu inisdvnhxcbv
@@ -25,7 +25,7 @@ function Banner() {
             sbdiufbesjhvbeqjhbwhdb iusdnfi unsdfu inisdvnhxcbv jhbbquif iuajwaqnd ka s asdasfsdfsd d oiasjd ioj askj asd
             asfohoiqw
           </p>
-        </div>
+        </article>
       </div>
     </div>
   )
