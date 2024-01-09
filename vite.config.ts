@@ -10,6 +10,7 @@ export default defineConfig({
       modules: '/src/modules',
       utility: '/src/utility',
       hooks: '/src/hooks',
+      data: '/src/data',
     },
   },
 })

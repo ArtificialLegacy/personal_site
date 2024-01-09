@@ -18,7 +18,8 @@
     "paths": {
       "modules/*": ["modules/*"],
       "utility/*": ["utility/*"],
-      "hooks/*": ["hooks/*"]
+      "hooks/*": ["hooks/*"],
+      "data/*": ["data/*"],
     },
 
     /* Linting */
