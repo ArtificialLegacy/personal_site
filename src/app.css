@@ -1,20 +1,26 @@
 :root {
   --bg1: #212121;
   --bg2: #111111;
-  --bg1o: #212121DD;
-  --bg2o: #111111DD;
+  --bg1o: #212121dd;
+  --bg2o: #111111dd;
+  --bg1o2: #21212155;
+  --bg2o2: #11111155;
 
-  --text: #BBBBAA;
+  --text: ivory;
 
   --radius: 10px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 body {
   padding: 0px;
   margin: 0px;
-
   background-color: black;
-  overflow-x: hidden;
 }
 
 .seperator {
