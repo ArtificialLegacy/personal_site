@@ -1,0 +1,153 @@
+.project-carousel {
+  width: 100%;
+
+  position: relative;
+
+  background-color: var(--bg1o2);
+
+  border-top: solid 1px #21212155;
+}
+
+.project-card-dummy {
+  width: 100%;
+  display: inline;
+
+  margin-top: 20px;
+  margin: 20px;
+
+  opacity: 0;
+}
+
+.project-card-left-icon,
+.project-card-right-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: var(--text);
+
+  transform: scale(5.5);
+  z-index: 100000;
+
+  pointer-events: none;
+}
+
+.project-card-left-icon {
+  left: 25px;
+}
+
+.project-card-right-icon {
+  right: 25px;
+}
+
+.project-prev,
+.project-current,
+.project-next,
+.project-left-insert,
+.project-right-insert {
+  position: absolute;
+  top: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.project-prev {
+  left: -50%;
+  transform: perspective(10000px) rotateY(-75deg);
+
+  &.project-prev-left {
+    transform: translateX(-50%) perspective(10000px) rotateY(-30deg);
+
+    transition:
+      transform 0.5s ease-in-out,
+      left 0.5s ease-in-out;
+  }
+
+  &.project-prev-right {
+    left: -50%;
+    transform: translateX(50%);
+
+    transition:
+      transform 0.5s ease-in-out,
+      left 0.5s ease-in-out;
+  }
+}
+
+.project-current {
+  left: -50%;
+  transform: translateX(50%);
+
+  z-index: 10000;
+
+  &.project-current-left {
+    left: -50%;
+    transform: perspective(10000px) rotateY(-75deg);
+
+    transition:
+      transform 0.5s ease-in-out,
+      left 0.5s ease-in-out;
+  }
+
+  &.project-current-right {
+    left: 50%;
+    transform: perspective(10000px) rotateY(75deg);
+
+    transition:
+      transform 0.5s ease-in-out,
+      left 0.5s ease-in-out;
+  }
+}
+
+.project-next {
+  right: -50%;
+  transform: perspective(10000px) rotateY(75deg);
+
+  &.project-next-left {
+    right: 50%;
+    transform: translateX(50%);
+
+    transition:
+      transform 0.5s ease-in-out,
+      right 0.5s ease-in-out;
+  }
+
+  &.project-next-right {
+    transform: translateX(50%) perspective(10000px) rotateY(30deg);
+
+    transition:
+      transform 0.5s ease-in-out,
+      left 0.5s ease-in-out;
+  }
+}
+
+.project-left-insert {
+  left: -50%;
+  transform: translateX(-50%) perspective(10000px) rotateY(-30deg);
+
+  &.project-left-insert-right {
+    left: -50%;
+    transform: perspective(10000px) rotateY(-75deg);
+
+    transition:
+      transform 0.5s ease-in-out,
+      left 0.5s ease-in-out;
+  }
+}
+
+.project-right-insert {
+  right: -50%;
+  transform: translateX(50%) perspective(10000px) rotateY(30deg);
+
+  &.project-right-insert-left {
+    right: -50%;
+    transform: perspective(10000px) rotateY(75deg);
+
+    transition:
+      transform 0.5s ease-in-out,
+      right 0.5s ease-in-out;
+  }
+}
