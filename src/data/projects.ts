@@ -33,7 +33,7 @@ const upscaleCli: Project = {
 }
 
 const portfolio: Project = {
-  name: 'This Website',
+  name: 'Personal Site',
   thumbnail: 'portfolio.png',
   thumbnailAlt: 'Thumbnail image showing a screenshot of this portfolio website',
   description:
