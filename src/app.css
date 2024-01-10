@@ -6,6 +6,9 @@
   --bg1o2: #21212155;
   --bg2o2: #11111155;
 
+  --scroll: #353535;
+  --scrollhover: #565656;
+
   --text: ivory;
 
   --radius: 10px;
@@ -23,7 +26,25 @@ body {
   background-color: black;
 }
 
-.seperator {
-  margin-left: 50px;
-  margin-right: 50px;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll);
+
+  border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollhover);
+}
+
+::-webkit-scrollbar-button {
+  height: 5px;
+  background: var(--bg2);
 }
