@@ -6,16 +6,16 @@ import { ProjectCard, type Project } from 'modules/project_card'
 import projectGetNext from '../utility/project_get_next'
 import projectGetPrev from '../utility/project_get_prev'
 
-import '../styles/project_list_carousel.css'
+import '../styles/project_carousel.css'
 
 /**
  * @property projects - List of projects to be displayed in the carousel
  */
-type ProjectListCarouselProps = {
+type ProjectCarouselProps = {
   projects: Project[]
 }
 
-function ProjectListCarousel(props: ProjectListCarouselProps) {
+function ProjectCarousel(props: ProjectCarouselProps) {
   const [currentProject, setCurrentProject] = useState(0)
   const [animState, setAnimState] = useState<'idle' | 'left' | 'right'>('idle')
   const [touchStart, setTouchStart] = useState<number | null>(null)
@@ -28,17 +28,23 @@ function ProjectListCarousel(props: ProjectListCarouselProps) {
       const { clientWidth } = target
 
       const horizontal = e.clientX / clientWidth
+
+      let animState: 'left' | 'right' | 'idle' = 'idle'
+      let nextProject = currentProject
+
       if (horizontal > 0.9) {
-        setAnimState('left')
-        setTimeout(() => {
-          setAnimState('idle')
-          setCurrentProject(projectGetNext(currentProject, props.projects))
-        }, 500)
+        animState = 'left'
+        nextProject = projectGetNext(currentProject, props.projects)
       } else if (horizontal < 0.1) {
-        setAnimState('right')
+        animState = 'right'
+        nextProject = projectGetPrev(currentProject, props.projects)
+      }
+
+      if (horizontal > 0.9 || horizontal < 0.1) {
+        setAnimState(animState)
         setTimeout(() => {
           setAnimState('idle')
-          setCurrentProject(projectGetPrev(currentProject, props.projects))
+          setCurrentProject(nextProject)
         }, 500)
       }
     },
@@ -61,19 +67,24 @@ function ProjectListCarousel(props: ProjectListCarouselProps) {
     const { clientWidth } = target
 
     const horizontal = e.changedTouches[0].clientX / clientWidth
+
+    let animState: 'left' | 'right' | 'idle' = 'idle'
+    let nextProject = currentProject
+
     if (horizontal > touchStart + 0.1) {
-      setAnimState('right')
-      setTouchStart(null)
-      setTimeout(() => {
-        setAnimState('idle')
-        setCurrentProject(projectGetPrev(currentProject, props.projects))
-      }, 500)
+      animState = 'right'
+      nextProject = projectGetPrev(currentProject, props.projects)
     } else if (horizontal < touchStart - 0.1) {
-      setAnimState('left')
+      animState = 'left'
+      nextProject = projectGetNext(currentProject, props.projects)
+    }
+
+    if (horizontal > touchStart + 0.1 || horizontal < touchStart - 0.1) {
+      setAnimState(animState)
       setTouchStart(null)
       setTimeout(() => {
         setAnimState('idle')
-        setCurrentProject(projectGetNext(currentProject, props.projects))
+        setCurrentProject(nextProject)
       }, 500)
     }
   }
@@ -85,21 +96,21 @@ function ProjectListCarousel(props: ProjectListCarouselProps) {
       <div className="project-card-dummy" aria-hidden>
         <ProjectCard project={props.projects[0]} disabled />
       </div>
-      <div className={`project-left-insert ${animState === 'right' ? 'project-left-insert-right' : ''}`}>
+      <div className={`project-left-insert ${animState === 'right' && 'project-left-insert-right'}`}>
         <ProjectCard project={props.projects[projectGetPrev(currentProject, props.projects, 2)]} disabled />
       </div>
 
       <div
-        className={`project-prev ${animState === 'left' ? 'project-prev-left' : ''} ${
-          animState === 'right' ? 'project-prev-right' : ''
+        className={`project-prev ${animState === 'left' && 'project-prev-left'} ${
+          animState === 'right' && 'project-prev-right'
         }`}
       >
         <ProjectCard project={props.projects[projectGetPrev(currentProject, props.projects)]} disabled />
       </div>
 
       <div
-        className={`project-current ${animState === 'left' ? 'project-current-left' : ''} ${
-          animState === 'right' ? 'project-current-right' : ''
+        className={`project-current ${animState === 'left' && 'project-current-left'} ${
+          animState === 'right' && 'project-current-right'
         }`}
         onClick={handleClick}
         onTouchStart={handleTouchStart}
@@ -109,18 +120,18 @@ function ProjectListCarousel(props: ProjectListCarouselProps) {
       </div>
 
       <div
-        className={`project-next ${animState === 'left' ? 'project-next-left' : ''} ${
-          animState === 'right' ? 'project-next-right' : ''
+        className={`project-next ${animState === 'left' && 'project-next-left'} ${
+          animState === 'right' && 'project-next-right'
         }`}
       >
         <ProjectCard project={props.projects[projectGetNext(currentProject, props.projects)]} disabled />
       </div>
 
-      <div className={`project-right-insert ${animState === 'left' ? 'project-right-insert-left' : ''}`}>
+      <div className={`project-right-insert ${animState === 'left' && 'project-right-insert-left'}`}>
         <ProjectCard project={props.projects[projectGetNext(currentProject, props.projects, 2)]} disabled />
       </div>
     </div>
   )
 }
 
-export default ProjectListCarousel
+export default ProjectCarousel

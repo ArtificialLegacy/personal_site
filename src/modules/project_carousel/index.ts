@@ -1,1 +1,1 @@
-export { default as ProjectListCarousel } from './components/ProjectListCarousel'
+export { default as ProjectCarousel } from './components/ProjectCarousel'
