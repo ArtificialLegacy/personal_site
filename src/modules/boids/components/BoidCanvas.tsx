@@ -5,7 +5,7 @@ import useMousePosition from 'hooks/useMousePosition'
 
 import '../styles/boid_canvas.css'
 
-const BOID_COUNT = 50
+const BOID_COUNT = 25
 const SPECIES_COUNT = 9
 const GROUP_RATE = 4
 
@@ -41,7 +41,7 @@ function BoidCanvas() {
 
   // manage render loop
   useEffect(() => {
-    let interval: number
+    let interval: ReturnType<typeof setInterval> | null = null
 
     if (ctx) {
       interval = setInterval(() => {
@@ -66,12 +66,15 @@ function BoidCanvas() {
     }
 
     return () => {
+      // ! Required bc setInterval returns a different type than clearInterval accepts.
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       clearInterval(interval)
     }
   }, [ctx, boids, mouse, canvasSize])
 
   useEffect(() => {
-    let time: number | null
+    let time: ReturnType<typeof setTimeout> | null
     setCanvasSize(new Vector(document.body.clientWidth, document.getElementById('banner')?.clientHeight))
 
     const handleResize = () => {
