@@ -4,14 +4,26 @@
   border-top: solid 2px var(--bg1o2);
 }
 
-.tech-list-header {
+.tech-list-panel>header {
+  display: flex;
+
+  padding-top: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-list-panel>header>div {
+  padding: 25px;
+
   font-size: 2rem;
-  margin-top: 10px;
 
-  text-align: center;
+  border-radius: 10px;
 
+  background-color: var(--bg2);
   color: var(--text);
   text-shadow: 4px 4px black;
+  box-shadow: 0 0 10px 3px black;
 }
 
 .tech-list {
@@ -19,7 +31,22 @@
   padding: 20px;
 }
 
-.tech-list-icon {
+.tech-list-item {
+  padding: 10px;
+  border-radius: 5px;
+
+  box-shadow: 0 0 10px 3px black;
+}
+
+.tech-list-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.tech-list-item:hover {
+  transform: scale(1.02);
+}
+
+.tech-list-item-head>img {
   width: 1em;
 
   vertical-align: middle;
@@ -27,14 +54,23 @@
   margin-right: 5px;
 }
 
-.tech-list-title {
+.tech-list-item-head {
+  display: inline-block;
+
+  width: calc(25% - 12px);
+
+  border-right: solid 2px var(--bg1);
+  margin-right: 10px;
+}
+
+.tech-list-item-head>h6 {
   display: inline-block;
   width: 25%;
 
   color: var(--text);
 }
 
-.tech-list-bar {
+.tech-list-item>div {
   display: inline-block;
   height: 1em;
 
@@ -56,17 +92,26 @@
   }
 }
 
-.tech-list-divider {
+.tech-list-item>hr {
   display: block;
-
   width: 100%;
-
   margin: 10px 0;
 
+  border: 0;
   border-bottom: 1px solid var(--bg1);
 
 }
 
-.tech-list-item:last-child .tech-list-divider {
+.tech-list-item:last-child>hr {
   display: none;
+}
+
+@media screen and (min-width: 950px) {
+  .tech-list-item-head {
+    font-size: 1.5rem;
+  }
+
+  .tech-list-item-head>img {
+    margin-right: 10px;
+  }
 }
