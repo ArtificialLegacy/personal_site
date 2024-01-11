@@ -40,7 +40,7 @@
   overflow: hidden;
   bottom: 0;
 
-  background: linear-gradient(to bottom, var(--bg1o2), var(--bg2o2));
+  background-color: var(--bg2o);
   box-shadow: inset 0px 12px 10px -10px black;
   border-radius: 0 0 var(--card-radius) var(--card-radius);
 
