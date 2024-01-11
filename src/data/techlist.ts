@@ -26,7 +26,7 @@ const mariadb: Tech = {
 
 const express: Tech = {
   title: 'Express.js',
-  percentage: 60,
+  percentage: 45,
   icon: 'expressjs-icon.svg',
 }
 
@@ -48,7 +48,13 @@ const git: Tech = {
   icon: 'Git-Icon-White.svg',
 }
 
-const tech: Tech[] = [typescript, nodejs, react, mariadb, express, html, css, git]
+const jest: Tech = {
+  title: 'Jest',
+  percentage: 50,
+  icon: 'jest.png',
+}
+
+const tech: Tech[] = [typescript, nodejs, react, mariadb, express, html, css, git, jest]
 
 tech.sort((a, b) => b.percentage - a.percentage)
 
