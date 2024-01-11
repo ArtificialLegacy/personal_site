@@ -14,7 +14,7 @@ function TechList(props: TechListProps) {
           <h3>Technologies I Use</h3>
         </div>
       </header>
-      <ul className="tech-list">
+      <ol className="tech-list">
         {props.techs.map((tech) => (
           <li className="tech-list-item" key={tech.title}>
             <span className="tech-list-item-head">
@@ -24,7 +24,7 @@ function TechList(props: TechListProps) {
             <div style={{ width: 75 * (tech.percentage / 100) + '%' }} />
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   )
 }
