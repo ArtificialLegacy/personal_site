@@ -1,7 +1,9 @@
 .tech-list-panel {
-  background-color: var(--bg2);
+  background-color: var(--bg1o);
 
-  border-top: solid 2px var(--bg1o2);
+  border-top: solid 5px var(--bg1o2);
+
+  box-shadow: 0 0 10px 3px black inset;
 
   &>header {
     display: flex;
@@ -18,7 +20,7 @@
 
       border-radius: 10px;
 
-      background-color: var(--bg2);
+      background-color: var(--bg1o);
       color: var(--text);
       text-shadow: 4px 4px black;
       box-shadow: 0 0 10px 3px black;
@@ -38,7 +40,7 @@
   box-shadow: 0 0 10px 3px black;
 
   &:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   &:hover {

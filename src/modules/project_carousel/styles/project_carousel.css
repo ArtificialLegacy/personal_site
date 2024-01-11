@@ -1,6 +1,10 @@
 .projects {
-  background-color: var(--bg1o2);
-  border-top: solid 2px var(--bg1o2);
+  background-color: var(--bg1o);
+  border-top: solid 5px var(--bg1o2);
+
+  padding-bottom: 25px;
+
+  box-shadow: 0 0 10px 3px black inset;
 
   &>header {
     display: flex;
@@ -36,7 +40,6 @@
   width: 100%;
   display: inline;
 
-  margin-top: 20px;
   margin: 20px;
 
   opacity: 0;
