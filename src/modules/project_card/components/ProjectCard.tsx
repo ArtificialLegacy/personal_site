@@ -5,8 +5,6 @@ import '../styles/ProjectCard.css'
 import projectTechIcon from '../utility/project_tech_icon'
 import type { Project } from '../types/project'
 
-const CARD_HOVER_THRESHOLD = 2
-
 type ProjectCardProps = {
   project: Project
   disabled?: boolean
@@ -30,10 +28,11 @@ function ProjectCard(props: ProjectCardProps) {
 
       const horizontal = (clientX - offsetLeft) / clientWidth
       const vertical = (clientY - offsetTop) / clientHeight
-      const rotateX = (CARD_HOVER_THRESHOLD / 2 - horizontal * CARD_HOVER_THRESHOLD).toFixed(2)
-      const rotateY = (vertical * CARD_HOVER_THRESHOLD - CARD_HOVER_THRESHOLD / 2).toFixed(2)
 
-      cardRef.current.style.transform = `perspective(${clientWidth}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`
+      const rotateX = horizontal.toFixed(2)
+      const rotateY = vertical.toFixed(2)
+
+      cardRef.current.style.transform = `perspective(${clientWidth}px) rotateX(${-rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`
     }
 
     const handleLeave = (e: MouseEvent) => {
@@ -59,18 +58,18 @@ function ProjectCard(props: ProjectCardProps) {
     }
   }, [cardRef, props.disabled])
 
-  if (props.project == null) return <div></div>
+  if (props.project == null) return <div />
 
   return (
     <div className={`project-card ${props.disabled ? '' : 'project-card-hover'}`} ref={cardRef}>
       <img src={props.project.thumbnail} alt={props.project.thumbnailAlt} className="project-card-thumbnail" />
 
-      <div className="project-card-bottom">
+      <article className="project-card-bottom">
         <header className="project-card-banner">
           <h3 className="project-card-name">{props.project.name}</h3>
         </header>
 
-        <article className="project-card-details">
+        <section className="project-card-details">
           <p className="project-card-description">{props.project.description}</p>
           <div className="project-card-badges">
             <div className="project-card-links">
@@ -105,8 +104,8 @@ function ProjectCard(props: ProjectCardProps) {
               })}
             </div>
           </div>
-        </article>
-      </div>
+        </section>
+      </article>
     </div>
   )
 }
