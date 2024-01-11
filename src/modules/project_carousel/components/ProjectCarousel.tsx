@@ -90,45 +90,50 @@ function ProjectCarousel(props: ProjectCarouselProps) {
   }
 
   return (
-    <div className="project-carousel">
-      <KeyboardArrowLeftIcon className="project-card-left-icon" />
-      <KeyboardArrowRightIcon className="project-card-right-icon" />
-      <div className="project-card-dummy" aria-hidden>
-        <ProjectCard project={props.projects[0]} disabled />
-      </div>
-      <div className={`project-left-insert ${animState === 'right' && 'project-left-insert-right'}`}>
-        <ProjectCard project={props.projects[projectGetPrev(currentProject, props.projects, 2)]} disabled />
-      </div>
+    <div className="projects">
+      <header>
+        <h1>My Projects</h1>
+      </header>
+      <div className="project-carousel">
+        <KeyboardArrowLeftIcon className="project-card-left-icon" />
+        <KeyboardArrowRightIcon className="project-card-right-icon" />
+        <div className="project-card-dummy" aria-hidden>
+          <ProjectCard project={props.projects[0]} disabled />
+        </div>
+        <div className={`project-left-insert ${animState === 'right' && 'project-left-insert-right'}`}>
+          <ProjectCard project={props.projects[projectGetPrev(currentProject, props.projects, 2)]} disabled />
+        </div>
 
-      <div
-        className={`project-prev ${animState === 'left' && 'project-prev-left'} ${
-          animState === 'right' && 'project-prev-right'
-        }`}
-      >
-        <ProjectCard project={props.projects[projectGetPrev(currentProject, props.projects)]} disabled />
-      </div>
+        <div
+          className={`project-prev ${animState === 'left' && 'project-prev-left'} ${
+            animState === 'right' && 'project-prev-right'
+          }`}
+        >
+          <ProjectCard project={props.projects[projectGetPrev(currentProject, props.projects)]} disabled />
+        </div>
 
-      <div
-        className={`project-current ${animState === 'left' && 'project-current-left'} ${
-          animState === 'right' && 'project-current-right'
-        }`}
-        onClick={handleClick}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-      >
-        <ProjectCard project={props.projects[currentProject]} disabled={animState !== 'idle'} />
-      </div>
+        <div
+          className={`project-current ${animState === 'left' && 'project-current-left'} ${
+            animState === 'right' && 'project-current-right'
+          }`}
+          onClick={handleClick}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+        >
+          <ProjectCard project={props.projects[currentProject]} disabled={animState !== 'idle'} />
+        </div>
 
-      <div
-        className={`project-next ${animState === 'left' && 'project-next-left'} ${
-          animState === 'right' && 'project-next-right'
-        }`}
-      >
-        <ProjectCard project={props.projects[projectGetNext(currentProject, props.projects)]} disabled />
-      </div>
+        <div
+          className={`project-next ${animState === 'left' && 'project-next-left'} ${
+            animState === 'right' && 'project-next-right'
+          }`}
+        >
+          <ProjectCard project={props.projects[projectGetNext(currentProject, props.projects)]} disabled />
+        </div>
 
-      <div className={`project-right-insert ${animState === 'left' && 'project-right-insert-left'}`}>
-        <ProjectCard project={props.projects[projectGetNext(currentProject, props.projects, 2)]} disabled />
+        <div className={`project-right-insert ${animState === 'left' && 'project-right-insert-left'}`}>
+          <ProjectCard project={props.projects[projectGetNext(currentProject, props.projects, 2)]} disabled />
+        </div>
       </div>
     </div>
   )

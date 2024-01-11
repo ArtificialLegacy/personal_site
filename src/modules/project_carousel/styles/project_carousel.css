@@ -1,11 +1,35 @@
+.projects {
+  background-color: var(--bg1o2);
+  border-top: solid 2px var(--bg1o2);
+
+  &>header {
+    display: flex;
+
+    padding-top: 25px;
+
+    justify-content: center;
+    align-items: center;
+
+    &>h1 {
+      padding: 25px 50px;
+
+      color: var(--text);
+
+      font-size: 2rem;
+      text-align: center;
+
+      border-radius: 10px;
+      color: var(--text);
+      text-shadow: 4px 4px black;
+      box-shadow: 0 0 10px 3px black;
+    }
+  }
+}
+
 .project-carousel {
   width: 100%;
 
   position: relative;
-
-  background-color: var(--bg1o2);
-
-  border-top: solid 2px var(--bg1o2);
 }
 
 .project-card-dummy {
