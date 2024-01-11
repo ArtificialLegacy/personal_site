@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
-import '../styles/ProjectCard.css'
+import '../styles/project_card.css'
 
 import projectTechIcon from '../utility/project_tech_icon'
 import type { Project } from '../types/project'
@@ -12,6 +12,7 @@ type ProjectCardProps = {
 
 function ProjectCard(props: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
+  const [descActive, setDescActive] = useState(false)
 
   useEffect(() => {
     if (props.disabled) return
@@ -35,13 +36,10 @@ function ProjectCard(props: ProjectCardProps) {
       cardRef.current.style.transform = `perspective(${clientWidth}px) rotateX(${-rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`
     }
 
-    const handleLeave = (e: MouseEvent) => {
+    const handleLeave = () => {
       if (cardRef.current == null) return
-      if (e.currentTarget == null) return
 
-      const target = e.currentTarget as HTMLDivElement
-
-      cardRef.current.style.transform = `perspective(${target.clientWidth}px) rotateX(0deg) rotateY(0deg)`
+      cardRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`
     }
 
     const motionMatchMedia = window.matchMedia('(prefers-reduced-motion)')
@@ -58,10 +56,25 @@ function ProjectCard(props: ProjectCardProps) {
     }
   }, [cardRef, props.disabled])
 
+  const handleTouch = useCallback(() => {
+    setDescActive(!descActive)
+  }, [descActive])
+
+  useEffect(() => {
+    setDescActive(false)
+  }, [props.project])
+
   if (props.project == null) return <div />
 
   return (
-    <div className={`project-card ${props.disabled ? '' : 'project-card-hover'}`} ref={cardRef}>
+    <div
+      className={`project-card ${!props.disabled && 'project-card-hover'} ${
+        !props.disabled && descActive && 'project-card-desc-active'
+      }`}
+      ref={cardRef}
+      onTouchStart={handleTouch}
+      onClick={handleTouch}
+    >
       <img src={props.project.thumbnail} alt={props.project.thumbnailAlt} className="project-card-thumbnail" />
 
       <article className="project-card-bottom">
