@@ -72,7 +72,6 @@ function ProjectCard(props: ProjectCardProps) {
         !props.disabled && descActive && 'project-card-desc-active'
       }`}
       ref={cardRef}
-      onTouchStart={handleTouch}
       onClick={handleTouch}
     >
       <img src={props.project.thumbnail} alt={props.project.thumbnailAlt} className="project-card-thumbnail" />
@@ -96,7 +95,7 @@ function ProjectCard(props: ProjectCardProps) {
                           src="github-mark-white.svg"
                           alt="github repo"
                           title={link.title}
-                        ></img>
+                        />
                       </a>
                     )
                   }

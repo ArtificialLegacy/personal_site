@@ -5,7 +5,7 @@
 
   background-color: var(--bg1o2);
 
-  border-top: solid 1px #21212155;
+  border-top: solid 2px var(--bg1o2);
 }
 
 .project-card-dummy {
