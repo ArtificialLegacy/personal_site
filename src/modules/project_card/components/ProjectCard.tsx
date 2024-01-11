@@ -5,6 +5,8 @@ import '../styles/project_card.css'
 import projectTechIcon from '../utility/project_tech_icon'
 import type { Project } from '../types/project'
 
+const CARD_ROTATE_FACTOR = 6
+
 type ProjectCardProps = {
   project: Project
   disabled?: boolean
@@ -25,15 +27,16 @@ function ProjectCard(props: ProjectCardProps) {
 
       const { clientX, clientY, currentTarget } = e
       if (currentTarget == null) return
-      const { clientWidth, clientHeight, offsetLeft, offsetTop } = currentTarget as HTMLDivElement
+      const { clientWidth, clientHeight } = currentTarget as HTMLDivElement
+      const { x, y } = (currentTarget as HTMLElement).getBoundingClientRect()
 
-      const horizontal = (clientX - offsetLeft) / clientWidth
-      const vertical = (clientY - offsetTop) / clientHeight
+      const horizontal = (clientX - x) / clientWidth
+      const vertical = (clientY - y) / clientHeight
 
-      const rotateX = horizontal.toFixed(2)
-      const rotateY = vertical.toFixed(2)
+      const rotateX = (CARD_ROTATE_FACTOR / 2 - horizontal * CARD_ROTATE_FACTOR).toFixed(2)
+      const rotateY = (vertical * CARD_ROTATE_FACTOR - CARD_ROTATE_FACTOR / 2).toFixed(2)
 
-      cardRef.current.style.transform = `perspective(${clientWidth}px) rotateX(${-rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`
+      cardRef.current.style.transform = `perspective(${clientWidth}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`
     }
 
     const handleLeave = () => {
