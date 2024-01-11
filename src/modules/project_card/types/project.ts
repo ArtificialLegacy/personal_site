@@ -6,7 +6,7 @@ type ProjectLink = {
   title: string
 }
 
-type ProjectTechnology = 'TypeScript' | 'React' | 'Node.js' | 'MariaDB' | 'Go' | 'Real-ESRGAN'
+type ProjectTechnology = 'TypeScript' | 'React' | 'Node.js' | 'MariaDB' | 'Go' | 'Real-ESRGAN' | 'Express'
 
 type Project = {
   name: string

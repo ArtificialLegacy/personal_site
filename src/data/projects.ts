@@ -14,7 +14,7 @@ const blubify: Project = {
       title: 'Blubify GitHub Repository',
     } as ProjectLink,
   ],
-  technologies: ['TypeScript', 'Node.js', 'React', 'MariaDB'],
+  technologies: ['TypeScript', 'Node.js', 'React', 'MariaDB', 'Express'].reverse() as Project['technologies'],
 }
 
 const upscaleCli: Project = {
@@ -29,7 +29,7 @@ const upscaleCli: Project = {
       title: 'Upscale CLI GitHub Repository',
     } as ProjectLink,
   ],
-  technologies: ['TypeScript', 'Node.js', 'Real-ESRGAN'],
+  technologies: ['TypeScript', 'Node.js', 'Real-ESRGAN'].reverse() as Project['technologies'],
 }
 
 const portfolio: Project = {
@@ -44,7 +44,7 @@ const portfolio: Project = {
       url: 'https://github.com/ArtificialLegacy/personal_site',
     } as ProjectLink,
   ],
-  technologies: ['TypeScript', 'React'],
+  technologies: ['TypeScript', 'React'].reverse() as Project['technologies'],
 }
 
 export { blubify, upscaleCli, portfolio }

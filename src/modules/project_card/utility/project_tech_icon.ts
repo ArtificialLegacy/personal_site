@@ -19,6 +19,8 @@ function projectTechIcon(tech: ProjectTechnology): string {
       return 'Go-Logo_Blue.svg'
     case 'Real-ESRGAN':
       return 'realesrgan-logo.png'
+    case 'Express':
+      return 'expressjs-icon.svg'
   }
 
   return ''
