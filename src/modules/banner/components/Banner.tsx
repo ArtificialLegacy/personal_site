@@ -7,13 +7,13 @@ function Banner() {
     <div className="banner" id="banner">
       <BoidCanvas />
       <div className="banner-container">
-        <div className="banner-pfp-container">
-          <img className="banner-pfp" src="pfp.png" alt="Profile Picture" />
-          <div className="banner-shadow" />
+        <div className="banner-pfp">
+          <img src="pfp.png" alt="Profile Picture" />
+          <div />
         </div>
 
         <article className="banner-card">
-          <p className="banner-text">
+          <p>
             asdasfsdfsdf oihsdkfuh weuihf hwebfb sdbf sud bhcxvbh uisdbfi bs sdf sdf sdf sdf w3ee fewf wefn khwev hbdisb
             fibdshv bsdhb jbvqwgvdBD iasjndf hbfwiuef nxchbviu sbdiufbesjhvbeqjhbwhdb iusdnfi unsdfu inisdvnhxcbv
             jhbbquif iuajwaqnd ka skjc ajncuqw uqnwind naskc jakncjan iuwqnd nkjdnkj nnvnv unsiunefijqnkwjnekjzdnc

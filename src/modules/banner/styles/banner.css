@@ -17,7 +17,7 @@
   border-radius: var(--radius);
 }
 
-.banner-pfp-container {
+.banner-pfp {
   width: var(--banner-pfp-size);
   height: var(--banner-pfp-size);
 
@@ -28,37 +28,37 @@
 
   box-shadow: 0 0 10px 0 black;
   border-radius: var(--pfp-radius);
-}
 
-.banner-pfp {
-  display: inline-block;
+  &>img {
+    display: inline-block;
 
-  width: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
+    width: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
 
-  margin-left: var(--banner-pfp-margin);
-  margin-top: var(--banner-pfp-margin);
+    margin-left: var(--banner-pfp-margin);
+    margin-top: var(--banner-pfp-margin);
 
-  aspect-ratio: 1/1;
-  object-fit: cover;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 
-  border-radius: var(--pfp-radius);
-}
+    border-radius: var(--pfp-radius);
+  }
 
-.banner-shadow {
-  position: absolute;
-  top: var(--banner-pfp-margin);
-  left: var(--banner-pfp-margin);
+  &>div {
+    position: absolute;
+    top: var(--banner-pfp-margin);
+    left: var(--banner-pfp-margin);
 
-  width: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
-  height: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
+    width: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
+    height: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
 
-  border-radius: var(--pfp-radius);
+    border-radius: var(--pfp-radius);
 
-  box-shadow: 0 0 20px 2px black inset;
+    box-shadow: 0 0 20px 2px black inset;
 
-  &:hover {
-    width: calc(var(--banner-pfp-size * var(--pfp-hover-scale)) - (var(--banner-pfp-margin) * 2));
-    height: calc(var(--banner-pfp-size * var(--pfp-hover-scale)) - (var(--banner-pfp-margin) * 2));
+    &:hover {
+      width: calc(var(--banner-pfp-size * var(--pfp-hover-scale)) - (var(--banner-pfp-margin) * 2));
+      height: calc(var(--banner-pfp-size * var(--pfp-hover-scale)) - (var(--banner-pfp-margin) * 2));
+    }
   }
 }
 
@@ -71,12 +71,12 @@
   border-radius: var(--radius);
 
   padding: var(--banner-card-pad);
-}
 
-.banner-text {
-  display: inline;
+  &>p {
+    display: inline;
 
-  color: var(--text);
+    color: var(--text);
+  }
 }
 
 @media screen and (min-width: 950px) {
@@ -126,7 +126,7 @@
     margin-right: auto;
   }
 
-  .banner-pfp-container {
+  .banner-pfp {
     margin-left: calc(50% - (var(--banner-pfp-size) / 2));
   }
 
