@@ -4,13 +4,13 @@ import { Footer } from 'modules/footer'
 import { TechList } from 'modules/tech_list'
 
 import { blubify, upscaleCli, portfolio } from './data/projects'
-import { typescript, react, nodejs, mariadb, express } from './data/techlist'
+import { tech } from './data/techlist'
 
 function App() {
   return (
     <div>
       <Banner />
-      <TechList techs={[typescript, react, nodejs, mariadb, express]} />
+      <TechList techs={tech} />
       <ProjectCarousel projects={[blubify, upscaleCli, portfolio]} />
       <Footer />
     </div>

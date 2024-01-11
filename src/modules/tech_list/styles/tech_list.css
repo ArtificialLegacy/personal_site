@@ -22,6 +22,8 @@
 .tech-list-icon {
   width: 1em;
 
+  vertical-align: middle;
+
   margin-right: 5px;
 }
 
