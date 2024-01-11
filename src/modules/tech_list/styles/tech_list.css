@@ -2,28 +2,28 @@
   background-color: var(--bg2);
 
   border-top: solid 2px var(--bg1o2);
-}
 
-.tech-list-panel>header {
-  display: flex;
+  &>header {
+    display: flex;
 
-  padding-top: 10px;
+    padding-top: 10px;
 
-  justify-content: center;
-  align-items: center;
-}
+    justify-content: center;
+    align-items: center;
 
-.tech-list-panel>header>div {
-  padding: 25px;
+    &>div {
+      padding: 25px;
 
-  font-size: 2rem;
+      font-size: 2rem;
 
-  border-radius: 10px;
+      border-radius: 10px;
 
-  background-color: var(--bg2);
-  color: var(--text);
-  text-shadow: 4px 4px black;
-  box-shadow: 0 0 10px 3px black;
+      background-color: var(--bg2);
+      color: var(--text);
+      text-shadow: 4px 4px black;
+      box-shadow: 0 0 10px 3px black;
+    }
+  }
 }
 
 .tech-list {
@@ -36,22 +36,26 @@
   border-radius: 5px;
 
   box-shadow: 0 0 10px 3px black;
-}
 
-.tech-list-item:not(:last-child) {
-  margin-bottom: 10px;
-}
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 
-.tech-list-item:hover {
-  transform: scale(1.02);
-}
+  &:hover {
+    transform: scale(1.02);
+  }
 
-.tech-list-item-head>img {
-  width: 1em;
+  &>div {
+    display: inline-block;
+    height: 1em;
 
-  vertical-align: middle;
+    border-radius: 0.5em;
 
-  margin-right: 5px;
+    background: linear-gradient(to right, var(--accent) 30%, var(--accent2) 80%, var(--accent) 100%) repeat;
+    background-size: 50% 100%;
+
+    animation: bar-gradient 8s infinite linear;
+  }
 }
 
 .tech-list-item-head {
@@ -61,49 +65,21 @@
 
   border-right: solid 2px var(--bg1);
   margin-right: 10px;
-}
 
-.tech-list-item-head>h6 {
-  display: inline-block;
-  width: 25%;
+  &>img {
+    width: 1em;
 
-  color: var(--text);
-}
+    vertical-align: middle;
 
-.tech-list-item>div {
-  display: inline-block;
-  height: 1em;
-
-  border-radius: 0.5em;
-
-  background: linear-gradient(to right, var(--accent) 30%, var(--accent2) 80%, var(--accent) 100%) repeat;
-  background-size: 50% 100%;
-
-  animation: bar-gradient 8s infinite linear;
-}
-
-@keyframes bar-gradient {
-  0% {
-    background-position: 0 0;
+    margin-right: 5px;
   }
 
-  100% {
-    background-position: 100% 0;
+  &>h6 {
+    display: inline-block;
+    width: 25%;
+
+    color: var(--text);
   }
-}
-
-.tech-list-item>hr {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-
-  border: 0;
-  border-bottom: 1px solid var(--bg1);
-
-}
-
-.tech-list-item:last-child>hr {
-  display: none;
 }
 
 @media screen and (min-width: 950px) {
@@ -113,5 +89,15 @@
 
   .tech-list-item-head>img {
     margin-right: 10px;
+  }
+}
+
+@keyframes bar-gradient {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
   }
 }
