@@ -58,8 +58,15 @@
 
   pointer-events: none;
 
+  &:not(.project-carousel-icon-disabled) {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+  }
+
   &.project-carousel-icon-disabled {
     opacity: 0.25;
+
+    transition: opacity 0.25s ease-in-out;
   }
 }
 
