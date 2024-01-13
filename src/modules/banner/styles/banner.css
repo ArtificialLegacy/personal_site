@@ -29,7 +29,7 @@
   box-shadow: 0 0 10px 0 black;
   border-radius: var(--pfp-radius);
 
-  &>img {
+  & img {
     display: inline-block;
 
     width: calc(var(--banner-pfp-size) - (var(--banner-pfp-margin) * 2));
@@ -43,7 +43,7 @@
     border-radius: var(--pfp-radius);
   }
 
-  &>div {
+  & div {
     position: absolute;
     top: var(--banner-pfp-margin);
     left: var(--banner-pfp-margin);
@@ -72,7 +72,44 @@
 
   padding: var(--banner-card-pad);
 
-  &>p {
+  & h2 {
+    color: var(--text);
+    font-weight: bold;
+    font-size: 2rem;
+    text-decoration: underline;
+
+    margin-bottom: 1rem;
+  }
+}
+
+.banner-card-details {
+  display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
+
+  & address {
+    color: var(--text2);
+
+    line-height: 2rem;
+
+    padding: 5px;
+    padding-right: 20px;
+
+    border-right: solid 1px var(--text);
+    margin-right: 1rem;
+  }
+
+  & a {
+    color: var(--text2);
+    text-decoration: none;
+  }
+
+  & a:hover {
+    text-decoration: underline;
+  }
+
+  & p {
     display: inline;
 
     color: var(--text);
@@ -100,7 +137,6 @@
 
   .banner-card {
     width: calc(100% - (var(--banner-pad) * 2) - var(--banner-pfp-size));
-    min-height: calc(var(--banner-pfp-size) - (var(--banner-container-pad) * 2));
 
     margin-left: var(--banner-card-margin);
   }
