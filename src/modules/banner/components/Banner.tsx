@@ -1,5 +1,7 @@
 import { BoidCanvas } from 'modules/boids'
 
+import profile from 'data/profile'
+
 import '../styles/banner.css'
 
 function Banner() {
@@ -13,18 +15,15 @@ function Banner() {
         </div>
 
         <article className="banner-card">
-          <p>
-            asdasfsdfsdf oihsdkfuh weuihf hwebfb sdbf sud bhcxvbh uisdbfi bs sdf sdf sdf sdf w3ee fewf wefn khwev hbdisb
-            fibdshv bsdhb jbvqwgvdBD iasjndf hbfwiuef nxchbviu sbdiufbesjhvbeqjhbwhdb iusdnfi unsdfu inisdvnhxcbv
-            jhbbquif iuajwaqnd ka skjc ajncuqw uqnwind naskc jakncjan iuwqnd nkjdnkj nnvnv unsiunefijqnkwjnekjzdnc
-            nc;nu;an wcuhainbwdb hbaiusxcuinbdib behwbd hba asdasfsdfsdf oihsdkfuh weuihf hwebfb sdbf sud bhcxvbh
-            uisdbfi bs sdf sdf sdf sdf w3ee fewf wefn khwev hbdisb fibdshv bsdhb jbvqwgvdBD iasjndf hbfwiuef nxchbviu
-            sbdiufbesjhvbeqjhbwhdb iusdnfi unsdfu inisdvnhxcbv jhbbquif iuajwaqnd ka skjc ajncuqw uqnwind naskc jakncjan
-            iuwqnd nkjdnkj nnvnv unsiunefijqnkwjnekjzdnc nc;nu;an wcuhainbwdb hbaiusxcuinbdib behwbd hba asdasfsdfsdf
-            sdfjklnsd nu wenfjn e fksndvuoixcv; ioj oij ioej ijdsoifj nweujifn uinsuid oiasjd ioj askjd wiuef nxchbviu
-            sbdiufbesjhvbeqjhbwhdb iusdnfi unsdfu inisdvnhxcbv jhbbquif iuajwaqnd ka s asdasfsdfsd d oiasjd ioj askj asd
-            asfohoiqw
-          </p>
+          <h2>{profile.name}</h2>
+          <div className="banner-card-details">
+            <address>
+              <a href={`mailto: ${profile.email}`}>{profile.email}</a>
+              <br />
+              <a href={`tel: ${profile.phone}`}>{profile.phone}</a>
+            </address>
+            <p>{profile.description}</p>
+          </div>
         </article>
       </div>
     </div>
