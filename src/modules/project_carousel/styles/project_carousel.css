@@ -45,8 +45,8 @@
   opacity: 0;
 }
 
-.project-card-left-icon,
-.project-card-right-icon {
+.project-carousel-left-icon,
+.project-carousel-right-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -57,13 +57,17 @@
   z-index: 100000;
 
   pointer-events: none;
+
+  &.project-carousel-icon-disabled {
+    opacity: 0.25;
+  }
 }
 
-.project-card-left-icon {
+.project-carousel-left-icon {
   left: 25px;
 }
 
-.project-card-right-icon {
+.project-carousel-right-icon {
   right: 25px;
 }
 

@@ -23,32 +23,33 @@ function ProjectCarousel(props: ProjectCarouselProps) {
   const handleClick: MouseEventHandler<HTMLDivElement> = useCallback(
     (e) => {
       if (e.currentTarget == null) return
+      if (animState !== 'idle') return
 
       const target = e.currentTarget as HTMLDivElement
       const { clientWidth } = target
 
       const horizontal = e.clientX / clientWidth
 
-      let animState: 'left' | 'right' | 'idle' = 'idle'
+      let anim: 'left' | 'right' | 'idle' = 'idle'
       let nextProject = currentProject
 
       if (horizontal > 0.9) {
-        animState = 'left'
+        anim = 'left'
         nextProject = projectGetNext(currentProject, props.projects)
       } else if (horizontal < 0.1) {
-        animState = 'right'
+        anim = 'right'
         nextProject = projectGetPrev(currentProject, props.projects)
       }
 
       if (horizontal > 0.9 || horizontal < 0.1) {
-        setAnimState(animState)
+        setAnimState(anim)
         setTimeout(() => {
-          setAnimState('idle')
           setCurrentProject(nextProject)
+          setAnimState('idle')
         }, 500)
       }
     },
-    [currentProject, props.projects],
+    [currentProject, props.projects, animState],
   )
 
   const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
@@ -95,8 +96,12 @@ function ProjectCarousel(props: ProjectCarouselProps) {
         <h1>My Projects</h1>
       </header>
       <div className="project-carousel">
-        <KeyboardArrowLeftIcon className="project-card-left-icon" />
-        <KeyboardArrowRightIcon className="project-card-right-icon" />
+        <KeyboardArrowLeftIcon
+          className={`project-carousel-left-icon ${animState !== 'idle' && 'project-carousel-icon-disabled'}`}
+        />
+        <KeyboardArrowRightIcon
+          className={`project-carousel-right-icon ${animState !== 'idle' && 'project-carousel-icon-disabled'}`}
+        />
         <div className="project-card-dummy" aria-hidden>
           <ProjectCard project={props.projects[0]} disabled />
         </div>
