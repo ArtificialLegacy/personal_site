@@ -9,7 +9,7 @@ import Vector from 'utility/Vector'
 function useMousePosition() {
   const [mousePos, setMousePos] = useState<Vector>(Vector.Zero)
   const [updatePos, setUpdatePos] = useState<Vector>(Vector.Zero)
-  const [time, setTime] = useState<number | null>()
+  const [time, setTime] = useState<ReturnType<typeof setTimeout> | null>()
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
