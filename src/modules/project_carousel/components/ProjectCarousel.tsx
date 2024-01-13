@@ -69,37 +69,41 @@ function ProjectCarousel(props: ProjectCarouselProps) {
     setTouchStart(e.touches[0].clientX / clientWidth)
   }
 
-  const handleTouchMove: TouchEventHandler<HTMLDivElement> = (e) => {
-    if (e.currentTarget == null || touchStart == null) return
+  const handleTouchMove: TouchEventHandler<HTMLDivElement> = useCallback(
+    (e) => {
+      if (e.currentTarget == null || touchStart == null) return
+      if (animState !== 'idle') return
 
-    const target = e.currentTarget as HTMLDivElement
-    const { clientWidth } = target
+      const target = e.currentTarget as HTMLDivElement
+      const { clientWidth } = target
 
-    const horizontal = e.changedTouches[0].clientX / clientWidth
+      const horizontal = e.changedTouches[0].clientX / clientWidth
 
-    let animState: 'left' | 'right' | 'idle' = 'idle'
-    let nextProject = currentProject
+      let anim: 'left' | 'right' | 'idle' = 'idle'
+      let nextProject = currentProject
 
-    const rightScroll = horizontal > touchStart + SCROLL_OFFSET
-    const leftScroll = horizontal < touchStart - SCROLL_OFFSET
+      const rightScroll = horizontal > touchStart + SCROLL_OFFSET
+      const leftScroll = horizontal < touchStart - SCROLL_OFFSET
 
-    if (rightScroll) {
-      animState = 'right'
-      nextProject = projectGetPrev(currentProject, props.projects)
-    } else if (leftScroll) {
-      animState = 'left'
-      nextProject = projectGetNext(currentProject, props.projects)
-    }
+      if (rightScroll) {
+        anim = 'right'
+        nextProject = projectGetPrev(currentProject, props.projects)
+      } else if (leftScroll) {
+        anim = 'left'
+        nextProject = projectGetNext(currentProject, props.projects)
+      }
 
-    if (rightScroll || leftScroll) {
-      setAnimState(animState)
-      setTouchStart(null)
-      setTimeout(() => {
-        setAnimState('idle')
-        setCurrentProject(nextProject)
-      }, SCROLL_TIME)
-    }
-  }
+      if (rightScroll || leftScroll) {
+        setAnimState(anim)
+        setTouchStart(null)
+        setTimeout(() => {
+          setCurrentProject(nextProject)
+          setAnimState('idle')
+        }, SCROLL_TIME)
+      }
+    },
+    [currentProject, props.projects, touchStart, animState],
+  )
 
   return (
     <div className="projects">
