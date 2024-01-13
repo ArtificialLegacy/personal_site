@@ -36,7 +36,7 @@ const portfolio: Project = {
   thumbnail: 'portfolio.png',
   thumbnailAlt: 'Thumbnail image showing a screenshot of this portfolio website',
   description:
-    'Besides being used as a portfolio, it is a playground for experimenting with different simulations and animations for the banner.',
+    'Besides being used as a portfolio, it is a playground for experimenting with different simulations and animations for the banner. Automated deployment using GitHub Actions to GitHub Pages.',
   links: [
     {
       from: 'github',
