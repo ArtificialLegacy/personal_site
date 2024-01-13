@@ -37,6 +37,8 @@
   padding: 10px;
   border-radius: 5px;
 
+  display: flex;
+
   box-shadow: 0 0 10px 3px black;
 
   &:not(:last-child) {
@@ -50,6 +52,8 @@
   &>div {
     display: inline-block;
     height: 1em;
+
+    align-self: center;
 
     border-radius: 0.5em;
 
