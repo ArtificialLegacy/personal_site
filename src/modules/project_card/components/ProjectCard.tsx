@@ -92,7 +92,14 @@ function ProjectCard(props: ProjectCardProps) {
                 props.project.links.map((link, index) => {
                   if (link.from === 'github') {
                     return (
-                      <a href={link.url} target="_blank" rel="noopener" className="project-card-github" key={index}>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener"
+                        className="project-card-github"
+                        key={index}
+                        tabIndex={-1}
+                      >
                         <img
                           className="project-card-icon"
                           src="github-mark-white.svg"
