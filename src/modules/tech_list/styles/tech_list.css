@@ -45,10 +45,6 @@
     margin-bottom: 15px;
   }
 
-  &:hover {
-    transform: scale(1.02);
-  }
-
   &>div {
     display: inline-block;
     height: 1em;
@@ -61,6 +57,12 @@
     background-size: 50% 100%;
 
     animation: bar-gradient 8s infinite linear;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tech-list-item:hover {
+    transform: translateY(-3px);
   }
 }
 
