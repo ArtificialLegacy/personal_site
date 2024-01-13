@@ -4,9 +4,7 @@ const blubify: Project = {
   name: 'Blubify',
   thumbnail: 'blubify.png',
   thumbnailAlt: 'Thumbnail image showing a screenshot of the blubify web interface',
-  description: `Blubify is a self-hostable frontend and backend service for streaming and managing music within your own
-  network. A passion project built to allow the use of a diverse range of music without limitations such as
-  songs being removed from playlists unexpectedly. Actively developed and maintained.`,
+  description: `Blubify is a self-hostable solution designed for music streaming and management within your private network. This is a passion project that is actively developed and maintained.`,
   links: [
     {
       from: 'github',
@@ -21,7 +19,8 @@ const upscaleCli: Project = {
   name: 'Upscale CLI',
   thumbnail: 'upscale-cli.png',
   thumbnailAlt: 'Thumbnail image showing a screenshot of the upscale-cli tool',
-  description: 'A CLI tool for running and batching tasks with Real-ESRGAN.',
+  description:
+    'Upscale-CLI is a commandline interface tool designed for running and batching tasks using Real-ESRGAN, and allows for downloading and managing the models.',
   links: [
     {
       from: 'github',
