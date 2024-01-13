@@ -15,6 +15,11 @@ type ProjectCarouselProps = {
   projects: Project[]
 }
 
+const MIN_SCROLL_MARGIN = 80
+const PERCENT_SCROLL_MARGIN = 0.1
+const SCROLL_OFFSET = 0.1
+const SCROLL_TIME = 500
+
 function ProjectCarousel(props: ProjectCarouselProps) {
   const [currentProject, setCurrentProject] = useState(0)
   const [animState, setAnimState] = useState<'idle' | 'left' | 'right'>('idle')
@@ -28,25 +33,28 @@ function ProjectCarousel(props: ProjectCarouselProps) {
       const target = e.currentTarget as HTMLDivElement
       const { clientWidth } = target
 
-      const horizontal = e.clientX / clientWidth
+      const horizontalMin = Math.max(clientWidth * PERCENT_SCROLL_MARGIN, MIN_SCROLL_MARGIN)
+      const horizontalMax = Math.min(clientWidth * (1 - PERCENT_SCROLL_MARGIN), clientWidth - MIN_SCROLL_MARGIN)
+      const withinLeft = e.clientX > horizontalMax
+      const withinRight = e.clientX < horizontalMin
 
       let anim: 'left' | 'right' | 'idle' = 'idle'
       let nextProject = currentProject
 
-      if (horizontal > 0.9) {
+      if (withinLeft) {
         anim = 'left'
         nextProject = projectGetNext(currentProject, props.projects)
-      } else if (horizontal < 0.1) {
+      } else if (withinRight) {
         anim = 'right'
         nextProject = projectGetPrev(currentProject, props.projects)
       }
 
-      if (horizontal > 0.9 || horizontal < 0.1) {
+      if (withinLeft || withinRight) {
         setAnimState(anim)
         setTimeout(() => {
           setCurrentProject(nextProject)
           setAnimState('idle')
-        }, 500)
+        }, SCROLL_TIME)
       }
     },
     [currentProject, props.projects, animState],
@@ -72,21 +80,24 @@ function ProjectCarousel(props: ProjectCarouselProps) {
     let animState: 'left' | 'right' | 'idle' = 'idle'
     let nextProject = currentProject
 
-    if (horizontal > touchStart + 0.1) {
+    const rightScroll = horizontal > touchStart + SCROLL_OFFSET
+    const leftScroll = horizontal < touchStart - SCROLL_OFFSET
+
+    if (rightScroll) {
       animState = 'right'
       nextProject = projectGetPrev(currentProject, props.projects)
-    } else if (horizontal < touchStart - 0.1) {
+    } else if (leftScroll) {
       animState = 'left'
       nextProject = projectGetNext(currentProject, props.projects)
     }
 
-    if (horizontal > touchStart + 0.1 || horizontal < touchStart - 0.1) {
+    if (rightScroll || leftScroll) {
       setAnimState(animState)
       setTouchStart(null)
       setTimeout(() => {
         setAnimState('idle')
         setCurrentProject(nextProject)
-      }, 500)
+      }, SCROLL_TIME)
     }
   }
 
