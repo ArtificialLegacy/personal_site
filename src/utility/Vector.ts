@@ -40,6 +40,18 @@ class Vector {
   }
 
   /**
+   * Adds a factor to both x and y.
+   * @param factor - The factor to add.
+   * @returns - This vector.
+   */
+  addBy(factor: number) {
+    this.x += factor
+    this.y += factor
+
+    return this
+  }
+
+  /**
    * Subtracts a vector from this vector.
    * @param vec - The vector to subtract.
    * @returns - This vector.
@@ -47,6 +59,18 @@ class Vector {
   sub(vec: Vector) {
     this.x -= vec.x
     this.y -= vec.y
+
+    return this
+  }
+
+  /**
+   * Subtracts a factor from both x and y.
+   * @param factor - The factor to subtract.
+   * @returns - This vector.
+   */
+  subBy(factor: number) {
+    this.x -= factor
+    this.y -= factor
 
     return this
   }
@@ -71,6 +95,18 @@ class Vector {
   mulBy(factor: number) {
     this.x *= factor
     this.y *= factor
+
+    return this
+  }
+
+  /**
+   * Divides this vector by another vector.
+   * @param vec - The vector to divide by.
+   * @returns - This vector.
+   */
+  div(vec: Vector) {
+    this.x /= vec.x
+    this.y /= vec.y
 
     return this
   }
