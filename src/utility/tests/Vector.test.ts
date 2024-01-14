@@ -16,23 +16,35 @@ describe('Vector instance', () => {
   })
 
   it('should add a vector', () => {
-    expect(vec.add(new Vector(2, 3))).toEqual(new Vector(3, 5))
+    expect(vec.from().add(new Vector(2, 3))).toEqual(new Vector(3, 5))
+  })
+
+  it('should add a factor', () => {
+    expect(vec.from().addBy(2)).toEqual(new Vector(3, 4))
   })
 
   it('should subtract a vector', () => {
-    expect(vec.sub(new Vector(2, 3))).toEqual(new Vector(1, 2))
+    expect(vec.from().sub(new Vector(2, 3))).toEqual(new Vector(-1, -1))
+  })
+
+  it('should subtract a factor', () => {
+    expect(vec.from().subBy(2)).toEqual(new Vector(-1, 0))
   })
 
   it('should multiply a vector', () => {
-    expect(vec.mul(new Vector(2, 3))).toEqual(new Vector(2, 6))
+    expect(vec.from().mul(new Vector(2, 3))).toEqual(new Vector(2, 6))
   })
 
   it('should multiply by a factor', () => {
-    expect(vec.mulBy(2)).toEqual(new Vector(4, 12))
+    expect(vec.from().mulBy(2)).toEqual(new Vector(2, 4))
+  })
+
+  it('should divide by a vector', () => {
+    expect(vec.from().div(new Vector(2, 4))).toEqual(new Vector(0.5, 0.5))
   })
 
   it('should divide by a factor', () => {
-    expect(vec.divBy(2)).toEqual(new Vector(2, 6))
+    expect(vec.from().divBy(2)).toEqual(new Vector(0.5, 1))
   })
 })
 

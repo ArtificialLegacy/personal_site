@@ -1,5 +1,6 @@
 import Vector from 'utility/Vector'
 import degtorad from 'utility/degtorad'
+import radtodeg from 'utility/radtodeg'
 
 // drawing constants
 const SCALE = 12
@@ -50,22 +51,24 @@ const FLEE_FACTOR = 0.2
 class Boid {
   public id: number
   public pos: Vector
-  public dir: number
 
   private vel: Vector
+  private dir: number
   private group: number
   private bias: number
   private species: number
 
-  constructor(id: number, pos: Vector, dir: number, group: number, species: number) {
+  constructor(id: number, pos: Vector, group: number, species: number) {
     this.id = id
     this.pos = pos
-    this.dir = dir
     this.group = group
     this.species = species
 
-    this.vel = Vector.Zero
+    this.vel = Vector.random(MAX_SPEED * 2, MAX_SPEED * 2).subBy(MAX_SPEED)
+    this.dir = 0
     this.bias = 0
+
+    this.updateDir()
   }
 
   /**
@@ -111,6 +114,7 @@ class Boid {
 
       // seperation
       if (boid.pos.distance(this.pos) <= PROTECTED_RANGE) {
+        boidCount++
         closeD.add(this.pos.from().sub(boid.pos))
       } else if (boid.pos.distance(this.pos) <= PERCEPTION_DISTANCE) {
         boidCount++
@@ -125,17 +129,13 @@ class Boid {
     if (boidCount > 0) {
       // alignment
       avgVel.divBy(boidCount)
+      this.vel.add(avgVel.sub(this.vel).mulBy(MATCHING_FACTOR))
       // cohesion
       avgPos.divBy(boidCount)
+      this.vel.add(avgPos.sub(this.pos).mulBy(CENTERING_FACTOR))
+      // seperation
+      this.vel.add(closeD.mulBy(AVOID_FACTOR))
     }
-
-    // alignment
-    this.vel.add(avgVel.sub(this.vel).mulBy(MATCHING_FACTOR))
-    // cohesion
-    this.vel.add(avgPos.sub(this.pos).mulBy(CENTERING_FACTOR))
-
-    // seperation
-    this.vel.add(closeD.mulBy(AVOID_FACTOR))
 
     // mouse avoidance
     if (mouse.distance(this.pos) <= FLEE_RANGE) {
@@ -175,8 +175,12 @@ class Boid {
     }
 
     // update pos and direction
-    this.dir = Math.atan2(this.vel.y, this.vel.x) * (180 / Math.PI)
+    this.updateDir()
     this.pos.add(this.vel)
+  }
+
+  private updateDir() {
+    this.dir = (radtodeg(Math.atan2(this.vel.y, this.vel.x)) + 360) % 360
   }
 }
 
