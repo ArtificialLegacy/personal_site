@@ -211,6 +211,8 @@
         &::before {
           content: "-";
           margin-right: 0.5rem;
+          display: inline-block;
+          text-decoration: none;
         }
       }
     }
