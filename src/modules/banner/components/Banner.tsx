@@ -19,8 +19,6 @@ function Banner() {
           <div className="banner-card-details">
             <address>
               <a href={`mailto: ${profile.email}`}>{profile.email}</a>
-              <br />
-              <a href={`tel: ${profile.phone}`}>{profile.phone}</a>
             </address>
             <p>{profile.description}</p>
           </div>
