@@ -14,7 +14,7 @@ const nodejs: Tech = {
 
 const react: Tech = {
   title: 'React',
-  percentage: 60,
+  percentage: 75,
   icon: 'react-logo.png',
 }
 
@@ -26,7 +26,7 @@ const mariadb: Tech = {
 
 const express: Tech = {
   title: 'Express.js',
-  percentage: 45,
+  percentage: 55,
   icon: 'expressjs-icon.svg',
 }
 
@@ -44,7 +44,7 @@ const css: Tech = {
 
 const git: Tech = {
   title: 'Git',
-  percentage: 80,
+  percentage: 60,
   icon: 'Git-Icon-White.svg',
 }
 
