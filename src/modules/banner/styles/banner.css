@@ -142,6 +142,24 @@
   }
 }
 
+@media screen and (min-width: 1500px) {
+  .banner-card {
+    & h2 {
+      font-size: 3rem;
+    }
+  }
+
+  .banner-card-details {
+    & p {
+      font-size: 1.1rem;
+    }
+
+    & address {
+      font-size: 1.1rem;
+    }
+  }
+}
+
 @media screen and (max-width: 949px) {
   :root {
     --banner-pad: 25px;
