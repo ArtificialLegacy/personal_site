@@ -188,4 +188,31 @@
     vertical-align: bottom;
     margin-top: var(--banner-card-margin);
   }
+
+  .banner-card-details {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    & address {
+      display: flex;
+      flex-direction: row;
+
+      border-right: none;
+      margin-right: 0;
+
+      border-bottom: solid 1px var(--text);
+      margin-bottom: 1rem;
+
+      & a:not(:first-child) {
+        margin-left: 0.5rem;
+
+        &::before {
+          content: "-";
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
 }
