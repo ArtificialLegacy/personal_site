@@ -41,6 +41,8 @@
 
   box-shadow: 0 0 10px 3px black;
 
+  transition: transform 0.05s ease-in-out;
+
   &:not(:last-child) {
     margin-bottom: 15px;
   }
@@ -63,6 +65,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .tech-list-item:hover {
     transform: translateY(-3px);
+    transition: transform 0.05s ease-in-out;
   }
 }
 
