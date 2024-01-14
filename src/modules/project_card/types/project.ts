@@ -13,6 +13,7 @@ type Project = {
   thumbnail: string
   thumbnailAlt: string
   description: string
+  featureList: string[]
   links: ProjectLink[]
   technologies: ProjectTechnology[]
 }

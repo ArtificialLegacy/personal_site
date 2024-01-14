@@ -132,6 +132,25 @@
   }
 }
 
+.project-card-features {
+  width: 100%;
+
+  & li {
+    color: var(--text);
+    display: list-item;
+    margin-left: 1.5em;
+
+    &::before {
+      content: "-";
+      color: var(--text);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+  }
+}
+
 @media screen and (min-width: 950px) {
   .project-card {
     aspect-ratio: 3/2;
@@ -179,6 +198,14 @@
     & img {
       width: 70px;
       height: 70px;
+    }
+  }
+
+  .project-card-features {
+    width: 100%;
+
+    & li {
+      font-size: 1.7rem;
     }
   }
 }

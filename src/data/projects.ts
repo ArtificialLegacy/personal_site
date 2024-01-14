@@ -4,7 +4,13 @@ const blubify: Project = {
   name: 'Blubify',
   thumbnail: 'blubify.png',
   thumbnailAlt: 'Thumbnail image showing a screenshot of the blubify web interface',
-  description: `Blubify is a self-hostable solution designed for music streaming and management within your private network. This is a passion project that is actively developed and maintained.`,
+  description: `Blubify is a self-hostable service designed for music streaming and management within your private network.`,
+  featureList: [
+    'Downloading audio from the YouTube API.',
+    'Node.js backend with Express.',
+    'Communicates with a MariaDB database using Kysely.',
+    'Music streaming using a chunked HTTP response.',
+  ],
   links: [
     {
       from: 'github',
@@ -21,6 +27,10 @@ const upscaleCli: Project = {
   thumbnailAlt: 'Thumbnail image showing a screenshot of the upscale-cli tool',
   description:
     'Upscale-CLI is a commandline interface tool designed for running and batching tasks using Real-ESRGAN, and allows for downloading and managing the models.',
+  featureList: [
+    'Downloads the REAL-ESRGAN models and extracts them automatically.',
+    'Allows for batching an entire folder of images to upscale in order.',
+  ],
   links: [
     {
       from: 'github',
@@ -36,7 +46,11 @@ const portfolio: Project = {
   thumbnail: 'portfolio.png',
   thumbnailAlt: 'Thumbnail image showing a screenshot of this portfolio website',
   description:
-    'Besides being used as a portfolio, it is a playground for experimenting with different simulations and animations for the banner. Automated deployment using GitHub Actions to GitHub Pages.',
+    'Besides being used as a portfolio, it is a playground for experimenting with different simulations and animations for the banner.',
+  featureList: [
+    'Automated deployment using GitHub Actions to GitHub Pages.',
+    'Includes animations and simulations of math and systems that I find interesting.',
+  ],
   links: [
     {
       from: 'github',

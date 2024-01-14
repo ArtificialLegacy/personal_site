@@ -86,6 +86,11 @@ function ProjectCard(props: ProjectCardProps) {
 
         <section className="project-card-details">
           <p className="project-card-description">{props.project.description}</p>
+          <ul className="project-card-features">
+            {props.project.featureList.map((feature, index) => {
+              return <li key={index}>{feature}</li>
+            })}
+          </ul>
           <div className="project-card-badges">
             <div className="project-card-links">
               {!props.disabled &&
