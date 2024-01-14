@@ -25,6 +25,14 @@ function ProjectCarousel(props: ProjectCarouselProps) {
   const [animState, setAnimState] = useState<'idle' | 'left' | 'right'>('idle')
   const [touchStart, setTouchStart] = useState<number | null>(null)
 
+  const updateAnimState = useCallback((anim: 'left' | 'right' | 'idle', nextProject: number) => {
+    setAnimState(anim)
+    setTimeout(() => {
+      setCurrentProject(nextProject)
+      setAnimState('idle')
+    }, SCROLL_TIME)
+  }, [])
+
   const handleClick: MouseEventHandler<HTMLDivElement> = useCallback(
     (e) => {
       if (e.currentTarget == null) return
@@ -50,15 +58,25 @@ function ProjectCarousel(props: ProjectCarouselProps) {
       }
 
       if (withinLeft || withinRight) {
-        setAnimState(anim)
-        setTimeout(() => {
-          setCurrentProject(nextProject)
-          setAnimState('idle')
-        }, SCROLL_TIME)
+        updateAnimState(anim, nextProject)
       }
     },
-    [currentProject, props.projects, animState],
+    [currentProject, props.projects, animState, updateAnimState],
   )
+
+  const handleClickLeft: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
+    if (animState !== 'idle') return
+
+    const nextProject = projectGetPrev(currentProject, props.projects)
+    updateAnimState('right', nextProject)
+  }, [currentProject, props.projects, animState, updateAnimState])
+
+  const handleClickRight: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
+    if (animState !== 'idle') return
+
+    const nextProject = projectGetNext(currentProject, props.projects)
+    updateAnimState('left', nextProject)
+  }, [currentProject, props.projects, animState, updateAnimState])
 
   const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
     if (e.currentTarget == null) return
@@ -94,15 +112,10 @@ function ProjectCarousel(props: ProjectCarouselProps) {
       }
 
       if (rightScroll || leftScroll) {
-        setAnimState(anim)
-        setTouchStart(null)
-        setTimeout(() => {
-          setCurrentProject(nextProject)
-          setAnimState('idle')
-        }, SCROLL_TIME)
+        updateAnimState(anim, nextProject)
       }
     },
-    [currentProject, props.projects, touchStart, animState],
+    [currentProject, props.projects, touchStart, animState, updateAnimState],
   )
 
   return (
@@ -111,12 +124,22 @@ function ProjectCarousel(props: ProjectCarouselProps) {
         <h1>My Projects</h1>
       </header>
       <div className="project-carousel">
-        <KeyboardArrowLeftIcon
+        <button
+          title="carousel left"
+          type="button"
+          onClick={handleClickLeft}
           className={`project-carousel-left-icon ${animState !== 'idle' && 'project-carousel-icon-disabled'}`}
-        />
-        <KeyboardArrowRightIcon
+        >
+          <KeyboardArrowLeftIcon />
+        </button>
+        <button
+          title="carousel right"
+          type="button"
+          onClick={handleClickRight}
           className={`project-carousel-right-icon ${animState !== 'idle' && 'project-carousel-icon-disabled'}`}
-        />
+        >
+          <KeyboardArrowRightIcon />
+        </button>
         <div className="project-card-dummy" aria-hidden>
           <ProjectCard project={props.projects[0]} disabled />
         </div>

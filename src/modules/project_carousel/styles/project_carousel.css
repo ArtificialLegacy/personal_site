@@ -1,3 +1,8 @@
+:root {
+  --scroll-time: .5s;
+  --easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .projects {
   background-color: var(--bg1o);
   border-top: solid 5px var(--bg1o2);
@@ -49,12 +54,22 @@
 .project-carousel-right-icon {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(5.5);
+
+  background: none;
+  border: none;
+
+  padding: 1px;
 
   color: var(--text);
 
-  transform: scale(5.5);
   z-index: 100000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 1px;
 
   pointer-events: none;
 
@@ -67,6 +82,11 @@
     opacity: 0.25;
 
     transition: opacity 0.25s ease-in-out;
+  }
+
+  &:focus {
+    outline: solid 1px var(--text) !important;
+    border: none;
   }
 }
 
@@ -101,8 +121,8 @@
     transform: translateX(-50%) perspective(10000px) rotateY(-30deg);
 
     transition:
-      transform 0.5s ease-in-out,
-      left 0.5s ease-in-out;
+      transform var(--scroll-time) var(--easing),
+      left var(--scroll-time) var(--easing);
   }
 
   &.project-prev-right {
@@ -110,8 +130,8 @@
     transform: translateX(50%);
 
     transition:
-      transform 0.5s ease-in-out,
-      left 0.5s ease-in-out;
+      transform var(--scroll-time) var(--easing),
+      left var(--scroll-time) var(--easing);
   }
 }
 
@@ -126,8 +146,8 @@
     transform: perspective(10000px) rotateY(-75deg);
 
     transition:
-      transform 0.5s ease-in-out,
-      left 0.5s ease-in-out;
+      transform var(--scroll-time) var(--easing),
+      left var(--scroll-time) var(--easing);
   }
 
   &.project-current-right {
@@ -135,8 +155,8 @@
     transform: perspective(10000px) rotateY(75deg);
 
     transition:
-      transform 0.5s ease-in-out,
-      left 0.5s ease-in-out;
+      transform var(--scroll-time) var(--easing),
+      left var(--scroll-time) var(--easing);
   }
 }
 
@@ -149,16 +169,16 @@
     transform: translateX(50%);
 
     transition:
-      transform 0.5s ease-in-out,
-      right 0.5s ease-in-out;
+      transform var(--scroll-time) var(--easing),
+      right var(--scroll-time) var(--easing);
   }
 
   &.project-next-right {
     transform: translateX(50%) perspective(10000px) rotateY(30deg);
 
     transition:
-      transform 0.5s ease-in-out,
-      left 0.5s ease-in-out;
+      transform var(--scroll-time) var(--easing),
+      left var(--scroll-time) var(--easing);
   }
 }
 
@@ -171,8 +191,8 @@
     transform: perspective(10000px) rotateY(-75deg);
 
     transition:
-      transform 0.5s ease-in-out,
-      left 0.5s ease-in-out;
+      transform var(--scroll-time) var(--easing),
+      left var(--scroll-time) var(--easing);
   }
 }
 
@@ -185,7 +205,13 @@
     transform: perspective(10000px) rotateY(75deg);
 
     transition:
-      transform 0.5s ease-in-out,
-      right 0.5s ease-in-out;
+      transform var(--scroll-time) var(--easing),
+      right var(--scroll-time) var(--easing);
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .projects {
+    padding-bottom: 50px;
   }
 }
