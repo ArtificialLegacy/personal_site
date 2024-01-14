@@ -10,8 +10,8 @@ function App() {
   return (
     <div>
       <Banner />
-      <TechList techs={tech} />
       <ProjectCarousel projects={[blubify, upscaleCli, portfolio]} />
+      <TechList techs={tech} />
       <Footer />
     </div>
   )
