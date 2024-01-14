@@ -19,6 +19,10 @@ function Banner() {
           <div className="banner-card-details">
             <address>
               <a href={`mailto: ${profile.email}`}>{profile.email}</a>
+              <br />
+              <a href={profile.linkedin} target="_blank" rel="noreferrer noopener">
+                LinkedIn
+              </a>
             </address>
             <p>{profile.description}</p>
           </div>

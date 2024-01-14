@@ -1,6 +1,7 @@
 const profile = {
   name: 'Joseph Goyer',
   email: 'jgoyer3@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/joseph-goyer-2a47bb1bb/',
   description: `
     Full-stack web developer with skills in React and TypeScript for frontend, and Node.js on the backend. 
     Certified in Web Applications from Quinsigamond Community College. 
