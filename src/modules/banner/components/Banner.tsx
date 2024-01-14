@@ -23,6 +23,10 @@ function Banner() {
               <a href={profile.linkedin} target="_blank" rel="noreferrer noopener">
                 LinkedIn
               </a>
+              <br />
+              <a href={profile.github} target="_blank" rel="noreferrer noopener">
+                GitHub
+              </a>
             </address>
             <p>{profile.description}</p>
           </div>
