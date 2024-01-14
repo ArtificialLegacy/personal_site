@@ -8,20 +8,10 @@ import Vector from 'utility/Vector'
  */
 function useMousePosition() {
   const [mousePos, setMousePos] = useState<Vector>(Vector.Zero)
-  const [updatePos, setUpdatePos] = useState<Vector>(Vector.Zero)
-  const [time, setTime] = useState<ReturnType<typeof setTimeout> | null>()
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
-      setUpdatePos(new Vector(e.clientX, e.clientY))
-      if (!time) {
-        setTime(
-          setTimeout(() => {
-            setMousePos(updatePos)
-            setTime(null)
-          }, 100),
-        )
-      }
+      setMousePos(new Vector(e.clientX, e.clientY))
     }
 
     window.addEventListener('mousemove', updatePosition)
@@ -29,7 +19,7 @@ function useMousePosition() {
     return () => {
       window.removeEventListener('mousemove', updatePosition)
     }
-  }, [time, updatePos])
+  }, [])
 
   return mousePos
 }
