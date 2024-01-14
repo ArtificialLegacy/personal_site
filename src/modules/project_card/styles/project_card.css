@@ -156,7 +156,8 @@
     aspect-ratio: 3/2;
   }
 
-  .project-card-description {
+  .project-card-description,
+  .project-card-features li {
     font-size: 1.25rem;
   }
 
