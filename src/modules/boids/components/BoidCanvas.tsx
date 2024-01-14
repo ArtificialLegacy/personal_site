@@ -47,18 +47,18 @@ function BoidCanvas() {
   // Resize canvas and boids on window resize
   const handleResize = useCallback(() => {
     const size = new Vector(document.body.clientWidth, document.getElementById('banner')?.clientHeight)
-    const scale = new Vector(size.x, size.y).div(canvasSize)
+    const scale = size.from().div(canvasSize)
 
     if (boids.length > 0) {
       boids.forEach((boid) => (boid.pos = boid.pos.mul(scale)))
       setBoids(boids)
     }
 
-    setCanvasSize(new Vector(size.x, size.y))
+    setCanvasSize(size.from())
 
     if (ctx != null) {
-      ctx.canvas.width = canvasSize.x
-      ctx.canvas.height = canvasSize.y
+      ctx.canvas.width = size.x
+      ctx.canvas.height = size.y
 
       renderRef.current()
     }
