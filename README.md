@@ -1,4 +1,4 @@
-# Personal Site for showcasing projects.
+# Personal Site for showcasing projects
 
 ![Deployment](https://github.com/ArtificialLegacy/personal_site/actions/workflows/github-pages-deploy.yml/badge.svg)
 
