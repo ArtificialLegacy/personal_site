@@ -230,7 +230,7 @@
 
   .project-card-desc-active {
     .project-card-bottom {
-      height: 50%;
+      height: 65%;
       transition: height 0.5s ease-in-out;
       transition-delay: 0.1s;
     }
