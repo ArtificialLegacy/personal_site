@@ -9,11 +9,6 @@ function Banner() {
     <div className="banner" id="banner">
       <BoidCanvas />
       <div className="banner-container">
-        <div className="banner-pfp">
-          <img src="pfp.png" alt="Profile Picture" />
-          <div />
-        </div>
-
         <article className="banner-card">
           <h2>{profile.name}</h2>
           <div className="banner-card-details">

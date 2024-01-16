@@ -136,9 +136,10 @@
   }
 
   .banner-card {
-    width: calc(100% - (var(--banner-pad) * 2) - var(--banner-pfp-size));
+    /*width: calc(100% - (var(--banner-pad) * 2) - var(--banner-pfp-size));*/
+    width: calc(100% - var(--banner-pad));
 
-    margin-left: var(--banner-card-margin);
+    /*margin-left: var(--banner-card-margin);*/
   }
 }
 
