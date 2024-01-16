@@ -26,7 +26,7 @@ const upscaleCli: Project = {
   thumbnail: 'upscale-cli.png',
   thumbnailAlt: 'Thumbnail image showing a screenshot of the upscale-cli tool',
   description:
-    'Upscale-CLI is a commandline interface tool designed for running and batching tasks using Real-ESRGAN, and allows for downloading and managing the models.',
+    'Upscale-CLI is a commandline interface tool designed for running and batching tasks using Real-ESRGAN, and allows for downloading and managing the models. Deprecated in favor of ImgScal.',
   featureList: [
     'Downloads the REAL-ESRGAN models and extracts them automatically.',
     'Allows for batching an entire folder of images to upscale in order.',
@@ -60,4 +60,24 @@ const portfolio: Project = {
   technologies: ['TypeScript', 'React'].reverse() as Project['technologies'],
 }
 
-export { blubify, upscaleCli, portfolio }
+const imgscal: Project = {
+  name: 'ImgScal',
+  thumbnail: 'imgscal.png',
+  thumbnailAlt: 'Thumbnail image showing a screenshot of the ImgScal tool',
+  description:
+    'ImgScal is a commandline interface tool designed for running and batching tasks using Real-ESRGAN, and allows for downloading and managing the models. It is a port of Upscale-CLI rewritten in GO with additional features. Includes the ability to write custom workflows in lua.',
+  featureList: [
+    'Downloads the REAL-ESRGAN models and extracts them automatically.',
+    'Allows for batching an entire folder of images to upscale in order.',
+    'Ability to run custom workflows written in lua.',
+  ],
+  links: [
+    {
+      from: 'github',
+      url: 'https://github.com/ArtificialLegacy/imgscal',
+    } as ProjectLink,
+  ],
+  technologies: ['Go', 'Real-ESRGAN'].reverse() as Project['technologies'],
+}
+
+export { blubify, upscaleCli, portfolio, imgscal }
