@@ -60,7 +60,13 @@ const go: Tech = {
   icon: 'Go-Logo_Blue.svg',
 }
 
-const tech: Tech[] = [typescript, nodejs, react, mariadb, express, html, css, git, jest, go]
+const lua: Tech = {
+  title: 'Lua',
+  percentage: 20,
+  icon: 'Lua-Logo_64x64.png',
+}
+
+const tech: Tech[] = [typescript, nodejs, react, mariadb, express, html, css, git, jest, go, lua]
 
 tech.sort((a, b) => b.percentage - a.percentage)
 

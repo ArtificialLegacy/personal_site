@@ -77,7 +77,7 @@ const imgscal: Project = {
       url: 'https://github.com/ArtificialLegacy/imgscal',
     } as ProjectLink,
   ],
-  technologies: ['Go', 'Real-ESRGAN'].reverse() as Project['technologies'],
+  technologies: ['Go', 'Real-ESRGAN', 'Lua'].reverse() as Project['technologies'],
 }
 
 export { blubify, upscaleCli, portfolio, imgscal }

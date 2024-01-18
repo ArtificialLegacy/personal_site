@@ -21,6 +21,8 @@ function projectTechIcon(tech: ProjectTechnology): string {
       return 'realesrgan-logo.png'
     case 'Express':
       return 'expressjs-icon.svg'
+    case 'Lua':
+      return 'Lua-Logo_64x64.png'
   }
 
   return ''
