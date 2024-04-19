@@ -8,7 +8,7 @@ const blubify: Project = {
   featureList: [
     'Downloading audio from the YouTube API.',
     'Node.js backend with Express.',
-    'Communicates with a MariaDB database using Kysely.',
+    'Integrates a MariaDB Database.',
     'Music streaming using a chunked HTTP response.',
   ],
   links: [

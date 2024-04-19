@@ -23,7 +23,6 @@ function Banner() {
                 GitHub
               </a>
             </address>
-            <p>{profile.description}</p>
           </div>
         </article>
       </div>

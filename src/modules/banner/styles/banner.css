@@ -65,7 +65,7 @@
 .banner-card {
   display: inline-block;
 
-  background-color: var(--bg2o);
+  background-color: var(--bg2o3);
 
   box-shadow: 0px 0px 10px 0px black;
   border-radius: var(--radius);
@@ -92,12 +92,22 @@
     color: var(--text2);
 
     line-height: 2rem;
+    display: flex;
+    flex-direction: row;
 
-    padding: 5px;
-    padding-right: 20px;
+    margin-right: 0;
+    margin-bottom: 1rem;
 
-    border-right: solid 1px var(--text);
-    margin-right: 1rem;
+    & a:not(:first-child) {
+      margin-left: 0.5rem;
+
+      &::before {
+        content: "-";
+        margin-right: 0.5rem;
+        display: inline-block;
+        text-decoration: none;
+      }
+    }
   }
 
   & a {
@@ -133,13 +143,6 @@
     align-items: center;
 
     padding: var(--banner-container-pad);
-  }
-
-  .banner-card {
-    /*width: calc(100% - (var(--banner-pad) * 2) - var(--banner-pfp-size));*/
-    width: calc(100% - var(--banner-pad));
-
-    /*margin-left: var(--banner-card-margin);*/
   }
 }
 
@@ -183,39 +186,5 @@
 
   .banner-pfp {
     margin-left: calc(50% - (var(--banner-pfp-size) / 2));
-  }
-
-  .banner-card {
-    vertical-align: bottom;
-    margin-top: var(--banner-card-margin);
-  }
-
-  .banner-card-details {
-    display: flex;
-
-    flex-direction: column;
-    justify-content: space-between;
-
-    & address {
-      display: flex;
-      flex-direction: row;
-
-      border-right: none;
-      margin-right: 0;
-
-      border-bottom: solid 1px var(--text);
-      margin-bottom: 1rem;
-
-      & a:not(:first-child) {
-        margin-left: 0.5rem;
-
-        &::before {
-          content: "-";
-          margin-right: 0.5rem;
-          display: inline-block;
-          text-decoration: none;
-        }
-      }
-    }
   }
 }
