@@ -10,7 +10,6 @@ function Canvas(props: CanvasProps<any>) {
     const canvas = useRef<HTMLCanvasElement>(null)
 
     useEffect(() => {
-        console.log(canvas.current)
         if (canvas.current == null) return
         const can = canvas.current
         const ctx = can.getContext('2d')
@@ -33,7 +32,6 @@ function Canvas(props: CanvasProps<any>) {
             props.render(ctx, state)
             windowSize = size
         }
-
         window.addEventListener('resize', resize)
 
         props.init(windowSize, state)
