@@ -8,8 +8,8 @@ import type { Project } from 'modules/project_card'
  * @returns - The index of the next project.
  */
 function projectGetNext(current: number, projects: Project[], offset = 1): number {
-  const next = current + offset
-  return next >= projects.length ? next - projects.length : next
+    const next = current + offset
+    return next >= projects.length ? next - projects.length : next
 }
 
 export default projectGetNext

@@ -1,7 +1,6 @@
 type Tech = {
-  title: string
-  percentage: number
-  icon: string
+    title: string
+    icon: string
 }
 
 export type { Tech }

@@ -1,73 +1,70 @@
 import type { Tech } from 'modules/tech_list'
 
 const typescript: Tech = {
-  title: 'TypeScript',
-  percentage: 100,
-  icon: 'ts-logo-round-128.svg',
+    title: 'TypeScript',
+    icon: 'ts-logo-round-128.svg',
 }
 
 const nodejs: Tech = {
-  title: 'Node.js',
-  percentage: 80,
-  icon: 'nodejs-logo.png',
+    title: 'Node.js',
+    icon: 'nodejs-logo.png',
 }
 
 const react: Tech = {
-  title: 'React',
-  percentage: 75,
-  icon: 'react-logo.png',
+    title: 'React',
+    icon: 'react-logo.png',
 }
 
 const mariadb: Tech = {
-  title: 'MariaDB',
-  percentage: 25,
-  icon: 'mariadb-logo.svg',
+    title: 'MariaDB',
+    icon: 'mariadb-logo.svg',
 }
 
 const express: Tech = {
-  title: 'Express.js',
-  percentage: 55,
-  icon: 'expressjs-icon.svg',
+    title: 'Express.js',
+    icon: 'expressjs-icon.svg',
 }
 
 const html: Tech = {
-  title: 'HTML',
-  percentage: 85,
-  icon: 'HTML5_logo_and_wordmark.svg',
+    title: 'HTML',
+    icon: 'HTML5_logo_and_wordmark.svg',
 }
 
 const css: Tech = {
-  title: 'CSS',
-  percentage: 65,
-  icon: 'CSS3_logo_and_wordmark.svg',
+    title: 'CSS',
+    icon: 'CSS3_logo_and_wordmark.svg',
 }
 
 const git: Tech = {
-  title: 'Git',
-  percentage: 60,
-  icon: 'Git-Icon-White.svg',
+    title: 'Git',
+    icon: 'Git-Icon-White.svg',
 }
 
 const jest: Tech = {
-  title: 'Jest',
-  percentage: 50,
-  icon: 'jest.png',
+    title: 'Jest',
+    icon: 'jest.png',
 }
 
 const go: Tech = {
-  title: 'Go',
-  percentage: 20,
-  icon: 'Go-Logo_Blue.svg',
+    title: 'Go',
+    icon: 'Go-Logo_Blue.svg',
 }
 
 const lua: Tech = {
-  title: 'Lua',
-  percentage: 20,
-  icon: 'Lua-Logo_64x64.png',
+    title: 'Lua',
+    icon: 'Lua-Logo_64x64.png',
 }
 
-const tech: Tech[] = [typescript, nodejs, react, mariadb, express, html, css, git, jest, go, lua]
+const markdown: Tech = {
+    title: 'Markdown',
+    icon: 'markdown-mark-white.svg',
+}
 
-tech.sort((a, b) => b.percentage - a.percentage)
+const gamemaker: Tech = {
+    title: 'GameMaker',
+    icon: 'GameMaker_Logo_WhiteTransparent.png',
+}
+
+const tech: Tech[] = [typescript, nodejs, html, css, react, mariadb, express, gamemaker, git, jest, go, lua, markdown]
 
 export { tech }

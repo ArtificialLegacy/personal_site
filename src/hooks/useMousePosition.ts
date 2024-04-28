@@ -7,21 +7,21 @@ import Vector from 'utility/Vector'
  * @returns - The current mouse position as a vector.
  */
 function useMousePosition() {
-  const [mousePos, setMousePos] = useState<Vector>(Vector.Zero)
+    const [mousePos, setMousePos] = useState<Vector>(Vector.Zero)
 
-  useEffect(() => {
-    const updatePosition = (e: MouseEvent) => {
-      setMousePos(new Vector(e.clientX, e.clientY))
-    }
+    useEffect(() => {
+        const updatePosition = (e: MouseEvent) => {
+            setMousePos(new Vector(e.clientX, e.clientY))
+        }
 
-    window.addEventListener('mousemove', updatePosition)
+        window.addEventListener('mousemove', updatePosition)
 
-    return () => {
-      window.removeEventListener('mousemove', updatePosition)
-    }
-  }, [])
+        return () => {
+            window.removeEventListener('mousemove', updatePosition)
+        }
+    }, [])
 
-  return mousePos
+    return mousePos
 }
 
 export default useMousePosition

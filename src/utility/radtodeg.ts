@@ -4,7 +4,7 @@
  * @returns - The converted value in degrees.
  */
 function radtodeg(rad: number): number {
-  return (rad * 180) / Math.PI
+    return (rad * 180) / Math.PI
 }
 
 export default radtodeg

@@ -7,14 +7,14 @@ import { blubify, upscaleCli, portfolio, imgscal } from './data/projects'
 import { tech } from './data/techlist'
 
 function App() {
-  return (
-    <div>
-      <Banner />
-      <ProjectCarousel projects={[blubify, imgscal, upscaleCli, portfolio]} />
-      <TechList techs={tech} />
-      <Footer />
-    </div>
-  )
+    return (
+        <div>
+            <Banner />
+            <ProjectCarousel projects={[blubify, imgscal, upscaleCli, portfolio]} />
+            <TechList techs={tech} />
+            <Footer />
+        </div>
+    )
 }
 
 export default App
