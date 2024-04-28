@@ -4,12 +4,11 @@ const blubify: Project = {
     name: 'Blubify',
     thumbnail: 'blubify.png',
     thumbnailAlt: 'Thumbnail image showing a screenshot of the blubify web interface',
-    description: `Blubify is a self-hostable service designed for music streaming and management within your private network.`,
+    description: `A self-hostable Web-App designed for music streaming within a private network.`,
     featureList: [
         'Downloading audio from the YouTube API.',
         'Node.js backend with Express.',
         'Integrates a MariaDB Database.',
-        'Music streaming using a chunked HTTP response.',
     ],
     links: [
         {
@@ -26,11 +25,8 @@ const upscaleCli: Project = {
     thumbnail: 'upscale-cli.png',
     thumbnailAlt: 'Thumbnail image showing a screenshot of the upscale-cli tool',
     description:
-        'Upscale-CLI is a commandline interface tool designed for running and batching tasks using Real-ESRGAN, and allows for downloading and managing the models. Deprecated in favor of ImgScal.',
-    featureList: [
-        'Downloads the REAL-ESRGAN models and extracts them automatically.',
-        'Allows for batching an entire folder of images to upscale in order.',
-    ],
+        'A CLI application designed for running and batching tasks using Real-ESRGAN, and allows for downloading and managing the models. Deprecated in favor of ImgScal.',
+    featureList: ['Downloads the REAL-ESRGAN models and extracts them automatically.'],
     links: [
         {
             from: 'github',
@@ -64,11 +60,10 @@ const imgscal: Project = {
     name: 'ImgScal',
     thumbnail: 'imgscal.png',
     thumbnailAlt: 'Thumbnail image showing a screenshot of the ImgScal tool',
-    description:
-        'ImgScal is a commandline interface tool designed for running and batching tasks using Real-ESRGAN, and allows for downloading and managing the models. It is a port of Upscale-CLI rewritten in GO with additional features. Includes the ability to write custom workflows in lua.',
+    description: 'A CLI application designed for running and batching image manipulation tasks.',
     featureList: [
         'Downloads the REAL-ESRGAN models and extracts them automatically.',
-        'Allows for batching an entire folder of images to upscale in order.',
+        'Allows for batching an entire folder of images to process in order.',
         'Ability to run custom workflows written in lua.',
     ],
     links: [
