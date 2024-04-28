@@ -1,13 +1,15 @@
-import { BoidCanvas } from 'modules/boids'
+import { Canvas } from 'modules/canvas'
 
 import profile from 'data/profile'
 
 import '../styles/banner.css'
 
+import { BoidCanvas } from 'modules/boids'
+
 function Banner() {
     return (
         <div className="banner" id="banner">
-            <BoidCanvas />
+            <Canvas {...BoidCanvas} />
             <div className="banner-container">
                 <article className="banner-card">
                     <h2>{profile.name}</h2>

@@ -1,6 +1,7 @@
 import Vector from 'utility/Vector'
 import degtorad from 'utility/degtorad'
 import radtodeg from 'utility/radtodeg'
+import type { CanvasProps } from 'modules/canvas'
 
 // drawing constants
 const SCALE = 12
@@ -35,6 +36,11 @@ const MAX_BIAS = 0.01
 const BIAS_INCREMENT = 0.00004
 const FLEE_RANGE = 128
 const FLEE_FACTOR = 0.2
+
+// constants for the instance of the simulation
+const BOID_COUNT = 25
+const SPECIES_COUNT = 9
+const GROUP_RATE = 4
 
 /**
  * Class representing a single boid instance.
@@ -184,4 +190,58 @@ class Boid {
     }
 }
 
-export default Boid
+type BoidState = {
+    boids: Boid[]
+    mouseEvent: (e: MouseEvent) => void
+    mouse: Vector
+}
+
+const BoidCanvas: CanvasProps<BoidState> = {
+    frames: 50,
+
+    init: (size, state) => {
+        const boidArray: Boid[] = []
+        for (let i = 0; i < BOID_COUNT * SPECIES_COUNT; i++) {
+            boidArray.push(new Boid(i, Vector.random(size.x, size.y), i % GROUP_RATE, i % SPECIES_COUNT))
+        }
+
+        state.mouse = new Vector(-9999, -9999)
+
+        const mouseUpdate = (e: MouseEvent) => {
+            state.mouse = new Vector(e.clientX, e.clientY)
+        }
+
+        state.mouseEvent = mouseUpdate
+        window.addEventListener('mousemove', state.mouseEvent)
+
+        state.boids = boidArray
+    },
+
+    render: (ctx, state) => {
+        state.boids.forEach((boid) => {
+            boid.draw(ctx)
+        })
+    },
+
+    update: (ctx, state) => {
+        const canvasRect = ctx.canvas.getBoundingClientRect()
+        const origin = new Vector(canvasRect.left, canvasRect.top)
+        const bounds = new Vector(ctx.canvas.width, ctx.canvas.height)
+
+        state.boids.forEach((boid) => {
+            boid.update(state.boids, bounds, state.mouse.from().sub(origin.from()))
+        })
+    },
+
+    scale: (_, scale, state) => {
+        state.boids.forEach((boid) => {
+            boid.pos.mul(scale)
+        })
+    },
+
+    clean: (state) => {
+        window.removeEventListener('mousemove', state.mouseEvent)
+    },
+}
+
+export { Boid, BoidCanvas }

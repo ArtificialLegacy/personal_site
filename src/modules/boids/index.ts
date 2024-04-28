@@ -1,1 +1,1 @@
-export { default as BoidCanvas } from './components/BoidCanvas'
+export { BoidCanvas } from './utility/Boid'
