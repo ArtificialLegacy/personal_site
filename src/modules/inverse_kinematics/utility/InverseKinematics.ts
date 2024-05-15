@@ -22,7 +22,6 @@ const BODY_LENGTH = 150
 const BODY_HEIGHT = 30
 const BODY_DEPTH = 70
 const BODY_LENGTH_HALF = 75
-const BODY_HEIGHT_HALF = 15
 const BODY_DEPTH_HALF = 35
 
 const THIGH_COLOR = '#FF0000'
@@ -417,7 +416,7 @@ type IKState = {
 const IKCanvas: CanvasProps<IKState> = {
     frames: 60,
 
-    init: (size, state) => {
+    init: (_, state) => {
         state.doggo = new Doggo()
         state.angle = 0
         state.frame = 0
@@ -434,7 +433,7 @@ const IKCanvas: CanvasProps<IKState> = {
         })
         drawPool.forEach((line) => line.draw(ctx))
     },
-    update: (ctx, state) => {
+    update: (_, state) => {
         state.angle += 0.005
         if (state.angle === 1) state.angle = 0
         state.frame++

@@ -127,11 +127,11 @@
 }
 
 .banner-selector {
-  p {
+  & p {
     color: var(--text);
   }
 
-  button {
+  & button {
     background-color: #00000000;
     color: var(--text);
 
@@ -186,11 +186,11 @@
     justify-content: center;
     align-items: center;
 
-    p {
+    & p {
       color: var(--text);
     }
 
-    button {
+    & button {
       background-color: #00000000;
       color: var(--text);
 
@@ -273,11 +273,11 @@
     justify-content: center;
     align-items: center;
 
-    p {
+    & p {
       color: var(--text);
     }
 
-    button {
+    & button {
       background-color: #00000000;
       color: var(--text);
 
