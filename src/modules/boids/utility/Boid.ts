@@ -1,4 +1,4 @@
-import Vector from 'utility/Vector'
+import { Vector } from 'utility/Vector'
 import degtorad from 'utility/degtorad'
 import radtodeg from 'utility/radtodeg'
 import type { CanvasProps } from 'modules/canvas'

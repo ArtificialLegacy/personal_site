@@ -126,6 +126,34 @@
   }
 }
 
+.banner-selector {
+  p {
+    color: var(--text);
+  }
+
+  button {
+    background-color: #00000000;
+    color: var(--text);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 5px;
+
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 1.5em;
+    height: 1.5em;
+
+    font-size: 2em;
+
+    &:hover {
+      border-color: var(--text2);
+    }
+  }
+}
+
 @media screen and (min-width: 950px) {
   :root {
     --banner-pad: 50px;
@@ -143,6 +171,46 @@
     align-items: center;
 
     padding: var(--banner-container-pad);
+  }
+
+  .banner-selector {
+    margin-left: auto;
+    margin-right: 0;
+
+    width: 10em;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: var(--text);
+    }
+
+    button {
+      background-color: #00000000;
+      color: var(--text);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding-bottom: 5px;
+
+      border: 1px solid white;
+      border-radius: 5px;
+      width: 1.5em;
+      height: 1.5em;
+
+      font-size: 2em;
+
+      &:hover {
+        border-color: var(--text2);
+      }
+    }
   }
 }
 
@@ -174,6 +242,11 @@
   .banner {
     padding-top: var(--banner-pad);
     padding-bottom: var(--banner-pad);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .banner-container {
@@ -186,5 +259,44 @@
 
   .banner-pfp {
     margin-left: calc(50% - (var(--banner-pfp-size) / 2));
+  }
+
+  .banner-selector {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    background-color: var(--bg2o);
+    padding: 10px;
+    border-radius: 10px;
+
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: var(--text);
+    }
+
+    button {
+      background-color: #00000000;
+      color: var(--text);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding-bottom: 5px;
+
+      border: 1px solid white;
+      border-radius: 5px;
+      width: 1.5em;
+      height: 1.5em;
+
+      font-size: 2em;
+
+      &:hover {
+        border-color: var(--text2);
+      }
+    }
   }
 }

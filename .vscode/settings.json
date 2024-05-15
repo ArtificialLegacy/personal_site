@@ -16,4 +16,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.tabSize": 4,
+  "glassit.alpha": 253,
 }

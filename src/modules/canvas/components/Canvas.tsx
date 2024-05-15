@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 
 import type { CanvasProps } from '../types/canvas_props'
-import Vector from 'utility/Vector'
+import { Vector } from 'utility/Vector'
 
 import '../styles/canvas.css'
 
@@ -29,7 +29,7 @@ function Canvas(props: CanvasProps<any>) {
             can.height = windowSize.y
 
             props.scale(size.from(), scale.from(), state)
-            props.render(ctx, state)
+            props.render(ctx, state, windowSize)
             windowSize = size
         }
         window.addEventListener('resize', resize)
@@ -40,7 +40,7 @@ function Canvas(props: CanvasProps<any>) {
             ctx.fillStyle = '#000000'
             ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 
-            props.render(ctx, state)
+            props.render(ctx, state, windowSize)
             props.update(ctx, state)
         }, 1000 / props.frames)
 

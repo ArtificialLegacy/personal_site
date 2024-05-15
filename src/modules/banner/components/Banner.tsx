@@ -1,15 +1,38 @@
-import { Canvas } from 'modules/canvas'
+import { useState, useCallback } from 'react'
 
 import profile from 'data/profile'
 
 import '../styles/banner.css'
 
+import { Canvas } from 'modules/canvas'
 import { BoidCanvas } from 'modules/boids'
+import { IKCanvas } from 'modules/inverse_kinematics'
+
+const CanvasList = [
+    {
+        text: 'Inverse Kinematics',
+        canvas: IKCanvas,
+    },
+    {
+        text: 'Boids',
+        canvas: BoidCanvas,
+    },
+]
 
 function Banner() {
+    const [activeCanvas, setCanvas] = useState(0)
+
+    const up = useCallback(() => {
+        setCanvas(activeCanvas - 1)
+    }, [activeCanvas])
+
+    const down = useCallback(() => {
+        setCanvas(activeCanvas + 1)
+    }, [activeCanvas])
+
     return (
         <div className="banner" id="banner">
-            <Canvas {...BoidCanvas} />
+            <Canvas {...CanvasList[activeCanvas].canvas} />
             <div className="banner-container">
                 <article className="banner-card">
                     <h2>{profile.name}</h2>
@@ -27,6 +50,11 @@ function Banner() {
                         </address>
                     </div>
                 </article>
+            </div>
+            <div className="banner-selector">
+                {activeCanvas > 0 && <button onClick={up}>⇑</button>}
+                <p>{CanvasList[activeCanvas].text}</p>
+                {activeCanvas < CanvasList.length - 1 && <button onClick={down}>⇓</button>}
             </div>
         </div>
     )
