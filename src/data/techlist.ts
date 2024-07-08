@@ -65,6 +65,26 @@ const gamemaker: Tech = {
     icon: 'GameMaker_Logo_WhiteTransparent.png',
 }
 
-const tech: Tech[] = [typescript, nodejs, html, css, react, mariadb, express, gamemaker, git, jest, go, lua, markdown]
+const openscad: Tech = {
+    title: 'OpenSCAD',
+    icon: 'openscad.svg',
+}
+
+const tech: Tech[] = [
+    typescript,
+    nodejs,
+    html,
+    css,
+    react,
+    mariadb,
+    express,
+    gamemaker,
+    git,
+    jest,
+    go,
+    lua,
+    markdown,
+    openscad,
+]
 
 export { tech }

@@ -59,12 +59,12 @@ const portfolio: Project = {
 const imgscal: Project = {
     name: 'ImgScal',
     thumbnail: 'imgscal.png',
-    thumbnailAlt: 'Thumbnail image showing a screenshot of the ImgScal tool',
-    description: 'A CLI application designed for running and batching image manipulation tasks.',
+    thumbnailAlt: 'Thumbnail image showing a screenshot of a workflow written with the ImgScal Lua API.',
+    description: 'A CLI application and Lua API for running image processing workflows.',
     featureList: [
-        'Downloads the REAL-ESRGAN models and extracts them automatically.',
-        'Allows for batching an entire folder of images to process in order.',
-        'Ability to run custom workflows written in lua.',
+        'Extensive Lua API for automating image proccessing.',
+        'Designed to automatically parallelize code execution.',
+        'Custom built logging solution when running Lua scripts designed around concurrency.',
     ],
     links: [
         {
@@ -72,7 +72,7 @@ const imgscal: Project = {
             url: 'https://github.com/ArtificialLegacy/imgscal',
         } as ProjectLink,
     ],
-    technologies: ['Go', 'Real-ESRGAN', 'Lua'].reverse() as Project['technologies'],
+    technologies: ['Go', 'Lua'].reverse() as Project['technologies'],
 }
 
 export { blubify, upscaleCli, portfolio, imgscal }
