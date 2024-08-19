@@ -60,11 +60,13 @@ const imgscal: Project = {
     name: 'ImgScal',
     thumbnail: 'imgscal.png',
     thumbnailAlt: 'Thumbnail image showing a screenshot of a workflow written with the ImgScal Lua API.',
-    description: 'A CLI application and Lua API for running image processing workflows.',
+    description: 'Automate image processing programmatically.',
     featureList: [
-        'Extensive Lua API for automating image proccessing.',
-        'Designed to automatically parallelize code execution.',
-        'Custom built logging solution when running Lua scripts designed around concurrency.',
+        'Built around concurrency.',
+        'Workflows writteng in lua.',
+        'Builtin handling for image encodings and color models.',
+        'Included ImGui wrapper for building custom GUI tools.',
+        'Command-line support, e.g. `imgscal resize ./image.png 100 100`.',
     ],
     links: [
         {

@@ -71,6 +71,7 @@ const openscad: Tech = {
 }
 
 const tech: Tech[] = [
+    go,
     typescript,
     nodejs,
     html,
@@ -81,7 +82,6 @@ const tech: Tech[] = [
     gamemaker,
     git,
     jest,
-    go,
     lua,
     markdown,
     openscad,
