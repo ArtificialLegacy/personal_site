@@ -9,6 +9,7 @@ const blubify: Project = {
         'Downloading audio from the YouTube API.',
         'Node.js backend with Express.',
         'Integrates a MariaDB Database.',
+        'Deployable with Docker.',
     ],
     links: [
         {
@@ -17,7 +18,14 @@ const blubify: Project = {
             title: 'Blubify GitHub Repository',
         } as ProjectLink,
     ],
-    technologies: ['TypeScript', 'Node.js', 'React', 'MariaDB', 'Express'].reverse() as Project['technologies'],
+    technologies: [
+        'TypeScript',
+        'Node.js',
+        'React',
+        'MariaDB',
+        'Express',
+        'Docker',
+    ].reverse() as Project['technologies'],
 }
 
 const upscaleCli: Project = {

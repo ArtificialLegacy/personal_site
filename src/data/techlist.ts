@@ -70,6 +70,11 @@ const openscad: Tech = {
     icon: 'openscad.svg',
 }
 
+const docker: Tech = {
+    title: 'Docker',
+    icon: 'docker-mark-blue.svg',
+}
+
 const tech: Tech[] = [
     go,
     typescript,
@@ -85,6 +90,7 @@ const tech: Tech[] = [
     lua,
     markdown,
     openscad,
+    docker,
 ]
 
 export { tech }

@@ -23,6 +23,8 @@ function projectTechIcon(tech: ProjectTechnology): string {
             return 'expressjs-icon.svg'
         case 'Lua':
             return 'Lua-Logo_64x64.png'
+        case 'Docker':
+            return 'docker-mark-blue.svg'
     }
 
     return ''
